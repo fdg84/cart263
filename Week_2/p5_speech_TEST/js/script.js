@@ -1,33 +1,35 @@
 /**
-Title of Project
-Author Name
-
-This is a template. You must fill in the title,
-author, and this description to match your project!
+p5 speech TEST 01
+Francis Ouellette
 */
 
 "use strict";
 
+// let voice = new p5.Speech();
 
-/**
-Description of preload
-*/
+let recognizer = new p5.SpeechRec();
+
 function preload() {
 
 }
 
 
-/**
-Description of setup
-*/
-function setup() {
 
+function setup() {
+    recognizer.onResult = handleResult;
+    recognizer.start();
 }
 
 
-/**
-Description of draw()
-*/
+
 function draw() {
 
+}
+
+// function mousePressed() {
+//     voice.speak('Welcome to heaven.');
+// }
+
+function handleResult(){
+    console.log(recognizer.resultString);
 }
