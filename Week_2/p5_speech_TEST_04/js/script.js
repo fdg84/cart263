@@ -38,10 +38,10 @@ function handleSpeechInput() {
     //     lightsAreOn = false;
     // }
     // backgroundColor = speechRecognizer.resultString;
-    
+
     let words = speechRecognizer.resultString.split('');
     backgroundColor = words.pop();
 
-    
+
 }
     
