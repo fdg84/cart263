@@ -5,60 +5,31 @@ Francis Ouellette
 
 "use strict";
 
-const speechSynthesizer = new p5.Speech();
-
-let showSubtitle = false;
-let toSay = 'welcome to hell';
-
-function preload() {
-
-}
-
-
+const speechRecognizer = new p5.SpeechRec();
+let currentSpeech = '?';
 
 function setup() {
    createCanvas(500,500);
 
-   // Synthesis Settings
-   speechSynthesizer.setPitch(0.5);
-   speechSynthesizer.setRate(0.5);
-   speechSynthesizer.setVoice('Google italiano');
-
-//    speechSynthesizer.onStart = speechStarted;
-//    speechSynthesizer.onEnd = speechEnded;
-
-   speechSynthesizer.onStart = () => {
-        showSubtitle = true;
-   };
-
-   speechSynthesizer.onEnd =  () => {
-        showSubtitle = false;
-   };
-
-   console.log(speechSynthesizer.listVoices());
+    speechRecognizer.onResult = handleSpeechInput;
+    speechRecognizer.start();
 }
-
-
 
 function draw() {
-    background(200,100,50);
+    background(30,200,50);
 
-    if (showSubtitle) {
-        textSize(40);
-        text(toSay, 100, 100);
+    textAlign(CENTER,CENTER);
+    textSize(24);
+    // text(currentSpeech, width / 2, height / 2);
+    text('Say that you love me', width / 2, height / 2);
+}
+
+function handleSpeechInput() {
+    // currentSpeech = speechRecognizer.resultString;
+    if (speechRecognizer.resultString === 'I love you') {
+        currentSpeech = 'Forever and ever';
     }
-}
-
-function mousePressed() {
-
-    // Say Something
-    speechSynthesizer.speak(toSay);
-}
-
-function speechStarted(){
-    showSubtitle = true;
-}
-
-function speechEnded(){
-    showSubtitle = false;
+    else {
+        currentSpeech = 'Broken heart';
+    }
 }
