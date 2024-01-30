@@ -1,6 +1,9 @@
 /**
 VOICE ACTIVATED AUDIO
 Francis Ouellette
+
+Inspired by Pippin Barr
+Multiple Commands + Variables in Commands
 */
 
 "use strict";
