@@ -1,6 +1,6 @@
 const commands = [
   {
-    "command": /set the text to (.*)/,
+    "command": /set the text to (.*) and (.*) and (.*) work (.*) face (.*) and (.*) if not winter (.*) no pain (.*) and (.*) and (.*) i bid you sing/,
     "callback": setText
   },
   // {
