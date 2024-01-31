@@ -10,7 +10,6 @@ Multiple Commands + Variables in Commands
 
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
-let isSound = true
 let airWav, bassWav, clapWav, claveWav, hatWav, kickWav, laserWav, riserWav, snareWav, synthWav
 
 let feedbackString = `...`;
@@ -78,7 +77,6 @@ const commands = [
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  
   voiceRecognizer.continuous = true;
   voiceRecognizer.onResult = onResult;
   voiceRecognizer.start();
@@ -88,7 +86,7 @@ function draw() {
   background(0);
   
   push();
-  (isSound) ? textSize(222) : textSize(222/feedbackString.split(" ").length)
+  textSize(222)
   textAlign(CENTER, CENTER);
   textFont(`Tilt Warp`)
   fill(textColour)
@@ -109,17 +107,9 @@ function onResult() {
   console.log(voiceRecognizer.resultString);
   let result  = voiceRecognizer.resultString.toLowerCase()
   for (let command of commands) {
-    //console.log('command', command.command)
     if (command.command.includes(result)) {
-      // We have a match, execute the corresponding callback
-      console.log("this is a found sound",isSound, command.command, result)
       command.callback();
-      isSound = true
       break;
-    } else {
-      console.log("this is not a sound :",isSound, command.command, result)
-      feedbackString = voiceRecognizer.resultString.toUpperCase()
-      isSound = false
     }    
   }
 }
