@@ -6,6 +6,8 @@ Francis Ouellette
 "use strict";
 
 const speechRecognizer = new p5.SpeechRec();
+//const speechRecognizer = {}
+
 let currentSpeech = '?';
 
 function setup() {

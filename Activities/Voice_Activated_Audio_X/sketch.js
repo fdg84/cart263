@@ -8,82 +8,73 @@ Multiple Commands + Variables in Commands
 
 "use strict";
 
-const sounds = []
-
-function preload() {
-    let air = loadSound('assets/sounds/air.wav');
-    sounds.push(air)
-    let bass = loadSound('assets/sounds/bass.wav');
-    sounds.push(bass)
-    let clap = loadSound('assets/sounds/clap.wav');
-    sounds.push(clap)
-    let clave = loadSound('assets/sounds/clave.wav');
-    sounds.push(clave)
-    let hat = loadSound('assets/sounds/hat.wav');
-    sounds.push(hat)
-    let kick = loadSound('assets/sounds/kick.wav');
-    sounds.push(kick) 
-    let laser = loadSound('assets/sounds/laser.wav');
-    sounds.push(laser) 
-    let riser = loadSound('assets/sounds/riser.wav');
-    sounds.push(riser) 
-    let snare = loadSound('assets/sounds/snare.wav');
-    sounds.push(snare) 
-    let synth = loadSound('assets/sounds/synth.wav');
-    sounds.push(synth) 
-}
-
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
+let isSound = true
+let airWav, bassWav, clapWav, claveWav, hatWav, kickWav, laserWav, riserWav, snareWav, synthWav
+
+let feedbackString = `...`;
+let textColour = `white`
+
+function preload() {
+    airWav = loadSound('assets/sounds/air.wav');
+    bassWav = loadSound('assets/sounds/bass.wav');
+    clapWav = loadSound('assets/sounds/clap.wav');
+    claveWav = loadSound('assets/sounds/clave.wav');
+    hatWav = loadSound('assets/sounds/hat.wav');
+    kickWav = loadSound('assets/sounds/kick.wav');
+    laserWav = loadSound('assets/sounds/laser.wav');
+    riserWav = loadSound('assets/sounds/riser.wav');
+    snareWav = loadSound('assets/sounds/snare.wav');
+    synthWav = loadSound('assets/sounds/synth.wav'); 
+}
 
 const commands = [
   {
-    "command": "hello",
+    "command": ["hello"],
     "callback": hello
   },
   {
-    "command": "air",
+    "command": ["air"],
     "callback": air
   },
   {
-    "command": "bass",
+    "command": ["bass"],
     "callback": bass
   },
   {
-    "command": "clap",
+    "command": ["clap"],
     "callback": clap
   },
   {
-    "command": "clave",
+    "command": ["clave", "clav"],
     "callback": clave
   },
   {
-    "command": "hat",
+    "command": ["hat"],
     "callback": hat
   },
   {
-    "command": "kick",
+    "command": ["kick"],
     "callback": kick
   },
   {
-    "command": "laser",
+    "command": ["laser"],
     "callback": laser
   },
   {
-    "command": "riser",
+    "command": ["riser"],
     "callback": riser
   },
   {
-    "command": "snare",
+    "command": ["snare"],
     "callback": snare
   },
   {
-    "command": "synth",
+    "command": ["synth"],
     "callback": synth
   }
 ];
-
-let feedbackString = `...`;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -97,9 +88,17 @@ function draw() {
   background(0);
   
   push();
-  textSize(64);
+  (isSound) ? textSize(222) : textSize(222/feedbackString.split(" ").length)
   textAlign(CENTER, CENTER);
+  textFont(`Tilt Warp`)
+  fill(textColour)
   text(feedbackString, width/2, height/2);
+
+  // Info Text
+  textSize(16);
+  noStroke();
+  fill('white');
+  text(`Welcome to a fun & interactive sound experience! \n Say these words to activate live audio: \n \n AIR - BASS - CLAP - CLAVE - HAT - KICK - LASER - RISER - SNARE - SYNTH \n \n Don't forget to say HELLO!`, width/2, height/1.2);
   pop();
 }
 
@@ -108,11 +107,17 @@ function onResult() {
     return;
   }
   console.log(voiceRecognizer.resultString);
+  let result  = voiceRecognizer.resultString.toLowerCase()
   for (let command of commands) {
-    if (voiceRecognizer.resultString.toLowerCase() === command.command) {
+    console.log('command', command.command)
+    if (command.command.includes(result)) {
       // We have a match, execute the corresponding callback
       command.callback();
+      isSound = true
       break;
+    } else {
+      feedbackString = voiceRecognizer.resultString.toUpperCase()
+      isSound = false
     }    
   }
 }
@@ -123,66 +128,61 @@ function hello() {
 }
 
 function air() {
+  textColour = `cyan`
   feedbackString = `AIR`;
+  airWav.play()
 }
 
 function bass() {
+  textColour = `white`
   feedbackString = `BASS`;
+  bassWav.play()
 }
 
 function clap() {
+  textColour = `red`
   feedbackString = `CLAP`;
+  clapWav.play()
 }
 
 function clave() {
+  textColour = `orange`
   feedbackString = `CLAVE`;
+  claveWav.play()
 }
 
 function hat() {
+  textColour = `yellow`
   feedbackString = `HAT`;
+  hatWav.play()
 }
 
 function kick() {
+  textColour = `gray`
   feedbackString = `KICK`;
+  kickWav.play()
 }
 
 function laser() {
+  textColour = `green`
   feedbackString = `LASER`;
+  laserWav.play()
 }
 
 function riser() {
+  textColour = `purple`
   feedbackString = `RISER`;
+  riserWav.play()
 }
 
 function snare() {
+  textColour = `pink`
   feedbackString = `SNARE`;
+  snareWav.play()
 }
 
 function synth() {
+  textColour = `beige`
   feedbackString = `SYNTH`;
+  synthWav.play()
 }
-
-// // Title Text
-// textFont(`Tilt Warp`)
-// textSize(120);
-// noStroke();
-// fill(255);
-// text('DOTS', 150, 368);
-
-// // Lime Text
-// textFont(`Space Grotesk`)
-// textSize(30);
-// noStroke();
-// fill(171, 250, 0);
-// text('Audio', 157, 277);
-
-// textSize(30);
-// noStroke();
-// fill(171, 250, 0);
-// text('Click & Play', 280, 400);
-
-// // Info Text
-// textSize(12);
-// noStroke();
-// fill(163, 195, 141);
-// text('Welcome to a fun & interactive sound experience!', 160, 225);
