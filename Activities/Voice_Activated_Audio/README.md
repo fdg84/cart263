@@ -1,5 +1,7 @@
-# VOICE ACTIVATED AUDIO by Francis Ouellette
+# VOICE ACTIVATED AUDIO
+## Francis Ouellette
 
-Voice Jam - Class Exercise 
+Inspired by Pippin Barr
+Multiple Commands + Variables in Commands
 
-By saying keywords, you can play sound clips pertaining to each audio file. Each sound is connected to a color, which appears on screen once spoken by the participant.  
+For the Voice Jam exercise, I used the speech recognizer to display a series of voice activated words, changing the colors and playing audio snippets of music I created. There is also an extra phrase that can be spoken by the speech-bot, when saluted correctly. 
