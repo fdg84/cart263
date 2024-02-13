@@ -19,7 +19,7 @@ class WaveDots {
     if(this.playing) {
       fill('rgba(0,127,255, 0.25)');
     } else {
-      fill('rgba(255,0,0, 0.25)');
+      fill('rgba(255,255,255, 0.25)');
     }
     ellipse(this.v.x, this.v.y, this.radius, this.radius);
     
@@ -40,7 +40,7 @@ function setup() {
   for (let w = 0; w < toneCount; w += 1) {
     waves.push(new p5.Oscillator());
     nw = waves[w]
-    nw.setType('sawtooth');
+    nw.setType('sinewave');
     nw.start();
     nw.freq(startFreq * pow(2,w*2/12));
     nw.amp(0);
@@ -53,7 +53,7 @@ function setup() {
     
     //random
     angle = w * (360/toneCount);
-    r = random(20,100)
+    r = random(20,150)
     px = random(r,width-r)
     py = random(r,height-r)
     waveDots.push(new WaveDots(w, createVector(px,py),r,false))
