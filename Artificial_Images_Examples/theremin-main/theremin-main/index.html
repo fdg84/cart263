@@ -1,0 +1,348 @@
+<!doctype html>
+<html class= "font-Roboto" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theremin</title>
+    </head>
+    
+    <body class="min-h-screen justify-center bg-stone-800">
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+        </style> 
+     <button id="backtosplash" type="button"  style="font-family: 'Lora', serif;" class="focus:outline-none text-3xl pt-5 text-zinc-200">theremin</button>
+     <script type="text/javascript">
+       document.getElementById("backtosplash").onclick = function () {
+         location.href = "//localhost:5173/splash"
+       };
+     </script>
+      <div id="content" class="flex flex-row gap-5 content-center">
+        <!-- VIDEO -->
+        <div class="flex-basis-5/7" id="video-container">
+          <video class="flex" autoplay playsinline></video>
+          <canvas class="absolute"></canvas>
+        </div>
+
+        <!-- NAV MENU -->
+        <div class="py-2 flex-grow rounded-2xl px-4 mr-4 bg-white" >
+          <p class="text-2xl text-stone-700">Controls</p>
+          <div class="inline-flex items-center py-15">
+            <!-- ACTIVATE            -->
+            <button id="toggleActivation" type="button"
+              class="text-gray-700 block px-4 py-2 text-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition inline-flex items-center mr-2 whitespace-nowrap w-64 ">
+    
+              <svg id="svgActivate" class="fill-current w-6 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                stroke-width="1.0" stroke="currentColor">
+                <!-- Initial SVG content -->
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75" />
+              </svg>
+              <span id="textActivate">Sound Off</span>
+            </button>
+    
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const button = document.getElementById('toggleActivation');
+                const svgIcon = document.getElementById('svgActivate');
+                const buttonText = document.getElementById('textActivate');
+
+                let isStart = true;
+
+                button.addEventListener('click', function () {
+                  // Toggle the state
+                  isStart = !isStart;
+                  // Update SVG and text based on the state
+                  if (isStart) {
+                    svgIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.7" />';
+                    buttonText.innerText = 'Sound Off ';
+                  } else {
+                    svgIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z" />';
+                    buttonText.innerText = 'Sound On';
+                  }
+                });
+              });
+            </script>
+          </div>
+
+          <div>
+            <!-- RECORD -->
+            <button id="toggleRecord" type="button"
+              class="text-gray-700 px-3 py-2 my-2 text-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition inline-flex items-center mr-1 whitespace-nowrap w-32">
+              <svg id="svgRecord" class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                stroke-width="1.0" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+              </svg>
+              <span id="textRecord">Record</span>
+            </button>
+
+            <!-- DOWNLOAD  -->
+            <button disabled id="videoDownload" type="button" download="recorded_video.webm"
+              class="text-gray-700 px-4 py-2 text-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5 opacity-50 transition inline-flex items-center">
+              <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+              </svg>
+              <span>Download</span>
+            </button>
+
+
+            <!-- STOPS STARTS AND DOWNLOADS -->
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                const button = document.getElementById('toggleRecord');
+                const svgIcon = document.getElementById('svgRecord');
+                const buttonText = document.getElementById('textRecord');
+
+                const downloadButton = document.getElementById('videoDownload');
+
+                const video = document.getElementById('video-container'); // Add a video element to your HTML
+                let mediaRecorder;
+                let chunks = [];
+
+
+                async function startRecording() {
+                  const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+                  mediaRecorder = new MediaRecorder(stream);
+
+                  mediaRecorder.ondataavailable = function (event) {
+                    if (event.data.size > 0) {
+                      chunks.push(event.data);
+                    }
+                  };
+
+                  mediaRecorder.onstop = function () {
+                    const blob = new Blob(chunks, { type: 'video/webm' });
+                    const url = URL.createObjectURL(blob);
+                    video.src = url;
+                  };
+
+                  mediaRecorder.start();
+                  downloadButton.disabled = true;
+                  downloadButton.classList.add('opacity-50');
+                }
+
+                function stopRecording() {
+                  if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                    downloadButton.classList.remove('opacity-50');
+                    downloadButton.disabled = false;
+                    mediaRecorder.stop();
+                  }
+
+                }
+
+                let isStart = true;
+
+                button.addEventListener('click', function () {
+                // Toggle the state
+                  isStart = !isStart;
+                  // Update SVG and text based on the state
+                  if (isStart) {
+                    chunks = [];
+                    svgIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />';
+                    buttonText.innerText = 'Record';
+                    stopRecording();
+                    console.log('no!!');
+                  } else {
+                    svgIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M5.25 7.5A2.25 2.25 0 0 1 7.5 5.25h9a2.25 2.25 0 0 1 2.25 2.25v9a2.25 2.25 0 0 1-2.25 2.25h-9a2.25 2.25 0 0 1-2.25-2.25v-9Z" />';
+                    buttonText.innerText = 'Stop     ';
+                    startRecording();
+                    console.log('recording!!');
+                  }
+                });
+                downloadButton.addEventListener('click', function () {
+                  if (chunks.length > 0) {
+                    const blob = new Blob(chunks, { type: 'video/webm' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'recorded_video.webm';
+                    a.click();
+                  }
+                });
+              });
+            </script>
+
+          </div>
+          <div class="py-3">
+            <p class="text-2xl text-stone-700">Lead</p>
+            <div class="relative inline-block text-left">
+                <button id="lead-btn" type="button"
+                        class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                    <span id="lead-option">Select a Lead</span>
+        
+                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div id="lead-dropdown"
+                     class="hidden absolute z-50 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="lead-btn">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                           onclick="updateLeadDropdownText('Sine')">Sine</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                           onclick="updateLeadDropdownText('Square')">Square</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                           onclick="updateLeadDropdownText('Triangle')">Triangle</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                           onclick="updateLeadDropdownText('Saw')">Saw</a>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                function updateLeadDropdownText(text) {
+                    document.getElementById('lead-option').innerText = text;
+                    document.getElementById('lead-dropdown').classList.add('hidden');
+                }
+        
+                document.getElementById('lead-btn').addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    const dropdownMenu = document.getElementById('lead-dropdown');
+                    dropdownMenu.classList.toggle('hidden');
+                });
+        
+                document.addEventListener('click', function () {
+                    document.getElementById('lead-dropdown').classList.add('hidden');
+                });
+            </script>
+        </div>
+        
+        <!-- BEAT DROP DOWN MENU -->
+        <div>
+            <p class="text-2xl text-stone-700">Beat Style</p>
+            <div class="relative inline-block text-left">
+                <button id="beat-btn" type="button"
+                        class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                    <span id="beat-option">Select a Beat</span>
+        
+                    <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div id="beat-dropdown"
+                     class="hidden absolute z-50 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="beat-btn">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                           onclick="updateBeatDropdownText('Boots and Cats')">Boots and Cats</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem"
+                           onclick="updateBeatDropdownText('Amen Break')">Amen Break</a>
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                function updateBeatDropdownText(text) {
+                    document.getElementById('beat-option').innerText = text;
+                    document.getElementById('beat-dropdown').classList.add('hidden');
+                }
+        
+                document.getElementById('beat-btn').addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    const dropdownMenu = document.getElementById('beat-dropdown');
+                    dropdownMenu.classList.toggle('hidden');
+                });
+        
+                document.addEventListener('click', function () {
+                    document.getElementById('beat-dropdown').classList.add('hidden');
+                });
+            </script>
+        </div>
+        
+          <!-- AUDIO OPTIONS -->
+            <div class="py-3">
+              <p class="text-2xl text-stone-700 mb-2 ">Audio Options</p>
+            <label class="switch" for="slideToggle">
+              <input id="slideToggle" type="checkbox" style="opacity: 0; position: absolute;">
+
+              <span class="slider"></span>
+            </label>
+            <span class="py-3 text-stone-700 text-xl " style="vertical-align: top; ">Slide</span>
+          </div>
+          <div>
+            <label class="switch" for="majorBtn">
+                <input id="majorBtn" type="checkbox" style="opacity: 0; position: absolute;">
+                <span class="slider"></span>
+            </label>
+            <span class="text-stone-700 text-xl" style="vertical-align: top; ">Drum</span>
+            </div>
+
+            <!-- BPM SLIDER -->
+            <p class="text-2xl text-stone-700 ">BPM</p>
+            <div class="relative mb-6">
+              <label for="labels-range-input" class="sr-only">Labels range</label>
+              <input id="labels-range-input" type="range" value="90" min="70" max="160" step="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">70</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/4 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">90</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/2 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">115</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-3/4 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">140</span>
+              <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">160</span>
+          </div>
+
+          <div class="border-b border-gray-300 pb-3"></div>
+          <div class="text-2xl text-stone-700 my-4 inline-flex items-center">Current Chord:
+
+          <div id="wordContainer" class="max-w-md pt-2 ml-3"></div>
+        </div> 
+          <script>
+            const recentWords = [];
+
+            // Function to log a word and update the display
+            function displayChord(word) {
+              recentWords.push(word);
+
+              if (recentWords.length > 1) {
+                recentWords.shift();
+              }
+
+              // Update the display
+              updateDisplay();
+            }
+
+            // Function to update the display with recent words
+            function updateDisplay() {
+              const wordContainer = document.getElementById('wordContainer');
+
+              // Clear the container
+              wordContainer.innerHTML = '';
+
+              // Display each recent word
+              recentWords.forEach((word) => {
+                const wordElement = document.createElement('div');
+                wordElement.textContent = word;
+                wordElement.classList.add('mb-2');
+                wordContainer.appendChild(wordElement);
+              });
+            }
+
+
+          </script>
+            </div>
+      </div>
+      <div id="warning-div" role="alert"
+        class="fixed bottom-4 left-4  px-4 py-1 text-base text-white bg-gray-900 rounded-lg font-regular"
+        style="opacity: 1;">
+        <div class="inline-flex items-center">For better performance, please only have one set of hands within the frame!
+          <button id="warning" type="button" class="focus:outline text-3xl px-2 py-2 text-zinc-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      
+      </div>
+      <script>
+        document.getElementById('warning').addEventListener('click', function () {
+          document.getElementById('warning').classList.add('hidden');
+          document.getElementById('warning-div').classList.add('hidden');
+        });
+      </script>
+      <script type="module" src="/main.js"></script>
+    </body>
+    </html>

@@ -129,12 +129,12 @@ function highlightHand(hand) {
   let ringX = ring[0];
   let ringY = ring[1];
   push();
-  fill(100, 100, 100);
+  fill(100, 200, 100);
   noStroke();
   ellipse(ringX, ringY, 30);
   pop();
 
-  let pinky = hand.annotations.pinkyFinger[3];
+  let pinky = hand.annotations.pinky[3];
   let pinkyX = pinky[0];
   let pinkyY = pinky[1];
   push();
