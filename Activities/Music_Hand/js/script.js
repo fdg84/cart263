@@ -94,10 +94,19 @@ function running() {
 }
 
 /**
-Provided with a detected hand it highlights the tip of the index finger
+Provided with a detected hand it highlights the tip of each finger
 */
 function highlightHand(hand) {
-  // Display a circle at the tip of the index finger
+  // Display a different color circle at the tip of each finger
+  let thumb = hand.annotations.thumb[3];
+  let thumbX = thumb[0];
+  let thumbY = thumb[1];
+  push();
+  fill(255, 0, 0);
+  noStroke();
+  ellipse(thumbX, thumbY, 30);
+  pop();
+
   let index = hand.annotations.indexFinger[3];
   let indexX = index[0];
   let indexY = index[1];
@@ -105,5 +114,32 @@ function highlightHand(hand) {
   fill(255, 255, 0);
   noStroke();
   ellipse(indexX, indexY, 30);
+  pop();
+
+  let middle = hand.annotations.middleFinger[3];
+  let middleX = middle[0];
+  let middleY = middle[1];
+  push();
+  fill(0, 255, 0);
+  noStroke();
+  ellipse(middleX, middleY, 30);
+  pop();
+
+  let ring = hand.annotations.ringFinger[3];
+  let ringX = ring[0];
+  let ringY = ring[1];
+  push();
+  fill(100, 100, 100);
+  noStroke();
+  ellipse(ringX, ringY, 30);
+  pop();
+
+  let pinky = hand.annotations.pinkyFinger[3];
+  let pinkyX = pinky[0];
+  let pinkyY = pinky[1];
+  push();
+  fill(0, 100, 200);
+  noStroke();
+  ellipse(pinkyX, pinkyY, 30);
   pop();
 }
