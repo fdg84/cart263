@@ -35,6 +35,7 @@ function setup() {
   createCanvas(640, 480);
   video = createCapture(VIDEO);
   video.size(width, height);
+  video.hide();
   angleMode(DEGREES);
   
   for (let w = 0; w < toneCount; w += 1) {

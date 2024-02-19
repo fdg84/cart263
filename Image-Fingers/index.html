@@ -1,0 +1,23 @@
+<html> 
+<body> 
+  <div id="container"> 
+    <video id="videoElement" width="640" height="500" 
+           style="display: none;">
+    </video> 
+    <canvas id="canvasElement" width="640" height="500"></canvas>     
+  </div> 
+  <img id="mother" src="mother_1.png" style="display: none;"/>
+  <img id="father" src="father_1.png" style="display: none;"/> 
+  <img id="brother" src="brother_1.png" style="display: none;"/>    
+  <img id="sister" src="sister_1.png" style="display: none;"/> 
+  <img id="baby" src="baby_1.png" style="display: none;"/> 
+  
+  <!--Load the Handpose model script along with its dependencies-->   
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"> 
+  </script> 
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script> 
+  <!--Load the custom script used for this example --> 
+  <script src="./index.js"></script> 
+</body> 
+</html>
