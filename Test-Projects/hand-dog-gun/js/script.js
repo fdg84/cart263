@@ -63,7 +63,7 @@ Preloads the dog image
 */
 function preload() {
   dogImage = loadImage(`assets/images/sausage-dog.png`);
-  barkSFX = loadSound(`assets/sounds/bark.wav`);
+  barkSFX = loadSound(`assets/sounds/vRec1.wav`);
 }
 
 /**
