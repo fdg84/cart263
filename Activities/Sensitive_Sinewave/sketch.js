@@ -72,9 +72,8 @@ function setup() {
   handpose.on("predict", results => {
     predictions = results;
   });
-  
+
   video.hide();
-  
 }
 
 function modelReady() {
