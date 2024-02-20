@@ -27,6 +27,8 @@ class WaveDots {
     noStroke();
     if(this.playing) {
       fill('rgba(100,0,100, 0.5)');
+      strokeWeight(3);
+      stroke(200,40,130);
     } else {
       fill('rgba(255,255,255, 0.25)');
     }
@@ -111,7 +113,6 @@ function checkDots() {
     }
   }
   
-  
   for (let w = 0; w < waveDots.length; w += 1) {
     waveDots[w].draw()
   }
@@ -123,7 +124,7 @@ function drawKeypoints() {
     const prediction = predictions[i];
     for (let j = 0; j < prediction.landmarks.length; j += 1) {
       const keypoint = prediction.landmarks[j];
-      fill(230,190,190);
+      fill(255);
       noStroke();
       ellipse(keypoint[0], keypoint[1], 10, 10);
     }
