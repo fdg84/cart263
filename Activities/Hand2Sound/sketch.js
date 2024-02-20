@@ -1,3 +1,11 @@
+/**
+ * Sensitive Sinewave
+ * Francis Ouellette
+ * 
+ * Inspired by Hand2Sound
+ * https://editor.p5js.org/dvs/sketches/2wgz8imaW
+ */
+
 let handpose;
 let video;
 let predictions = [];
@@ -110,7 +118,7 @@ function checkDots() {
   }
 }
 
-// Draw ellipses over the detected keypoints
+// Hand detection - draw ellipses over keypoints
 function drawKeypoints() {
   for (let i = 0; i < predictions.length; i += 1) {
     const prediction = predictions[i];
