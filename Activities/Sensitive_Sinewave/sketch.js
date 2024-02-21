@@ -13,12 +13,18 @@ let waves = [];
 let waveDots = [];
 let toneCount = 20;
 let startFreq = 120;
+let loadText = ["Loading","Loading.","Loading..","Loading..."];
+let isReady = false;
+let animSpeed = 10;
+let animCount = 0;
+let frameCount = 0;
 
 class WaveDots {
   constructor(i, v,r, playing) {
     this.wave = i;
     this.v = v;
     this.playing = playing;
+    this.minRadius = r;
     this.radius = r;
   }
   
@@ -29,7 +35,15 @@ class WaveDots {
       fill('rgba(100,0,100, 0.5)');
       strokeWeight(3);
       stroke(200,40,130);
+      this.radius = this.radius + 2;   
     } else {
+      
+      if (this.radius > this.minRadius){
+          this.radius = this.radius - 8;
+      if (this.radius < this.minRadius){
+          this.radius = this.minRadius;
+        }
+      }
       fill('rgba(255,255,255, 0.25)');
     }
     ellipse(this.v.x, this.v.y, this.radius, this.radius);
@@ -42,7 +56,6 @@ class WaveDots {
     }
   }
 }
-
 // Webcam
 function setup() {
   createCanvas(600, 600);
@@ -54,7 +67,7 @@ function setup() {
   // Oscillator
   for (let w = 0; w < toneCount; w += 1) {
     waves.push(new p5.Oscillator());
-    nw = waves[w]
+    nw = waves[w];
     nw.setType('sine');
     nw.start();
     nw.freq(startFreq * pow(2,w*2/12));
@@ -62,10 +75,10 @@ function setup() {
     
     //Random Dots
     angle = w * (360/toneCount);
-    r = random(10,120)
-    px = random(r,width-r)
-    py = random(r,height-r)
-    waveDots.push(new WaveDots(w, createVector(px,py),r,false))
+    r = random(10,120);
+    px = random(r,width-r);
+    py = random(r,height-r);
+    waveDots.push(new WaveDots(w, createVector(px,py),r,false));
   }  
 
   handpose = ml5.handpose(video, modelReady);
@@ -79,7 +92,8 @@ function setup() {
 }
 
 function modelReady() {
-  console.log("Model ready!");
+  isReady = true;
+  loadText=[""];
 }
 
 // Fill background
@@ -87,6 +101,16 @@ function draw() {
   image(video, 0, 0, width, height);
   background(230, 80, 60);
   
+  animCount++;
+  if (animCount%animSpeed == 0){
+    frameCount++;
+    if(frameCount > loadText.length) {
+      frameCount = 0;
+    }
+  }
+
+  text(loadText[frameCount], 170, 300);
+  textSize(60);
   checkDots();
 
   // Call functions to draw keypoints and skeletons
@@ -106,7 +130,7 @@ function checkDots() {
       const keypoint = prediction.landmarks[j];
       
       for (let w = 0; w < waveDots.length; w += 1) {
-        if(check_a_point(keypoint[0], keypoint[1], waveDots[w].v.x, waveDots[w].v.y, waveDots[w].radius)) {
+        if(check_a_point(keypoint[0], keypoint[1], waveDots[w].v.x, waveDots[w].v.y, waveDots[w].minRadius)) {
           waveDots[w].playing = true;
         } 
       }
@@ -114,7 +138,7 @@ function checkDots() {
   }
   
   for (let w = 0; w < waveDots.length; w += 1) {
-    waveDots[w].draw()
+    waveDots[w].draw();
   }
 }
 
@@ -126,7 +150,9 @@ function drawKeypoints() {
       const keypoint = prediction.landmarks[j];
       fill(255);
       noStroke();
-      ellipse(keypoint[0], keypoint[1], 10, 10);
+      // inverts the hand on the x axis 
+      // 600 refers to width of canvas
+      ellipse(Math.abs(keypoint[0] - 600), keypoint[1], 10, 10);
     }
   }
 }
