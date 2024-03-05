@@ -6,8 +6,32 @@ class Play extends Phaser.Scene {
     }
   
     create() {
-      this.wall = this.physics.add.sprite(100, 100, `wall`);
-      this.wall.setTint(`0xdd3333`);
+
+      this.walls = this.physics.add.group({
+        key: `wall`,
+        immovable: true,
+        quantity: 50,
+    });
+    this.walls.children.each(function(wall) {
+        let x = Phaser.Math.Between(0, this.sys.canvas.width);
+        let y = Phaser.Math.Between(0, this.sys.canvas.height);
+
+        wall.setPosition(x, y);
+        wall.setTint(`0xdd3333`);
+    }, this);
+
+    this.collectables = this.physics.add.group({
+        key: `wall`,
+        immovable: true,
+        quantity: 30,
+    });
+    this.collectables.children.each(function(collectable) {
+        let x = Phaser.Math.Between(0, this.sys.canvas.width);
+        let y = Phaser.Math.Between(0, this.sys.canvas.height);
+
+        collectable.setPosition(x, y);
+        collectable.setTint(`0x33dd33`);
+    }, this);
   
       this.avatar = this.physics.add.sprite(200, 200, `avatar`);
   
@@ -16,6 +40,9 @@ class Play extends Phaser.Scene {
       this.avatar.setVelocityX(100);
       this.avatar.play(`moving`);
       this.avatar.setCollideWorldBounds(true);
+
+      this.physics.add.collider(this.avatar, this.walls);
+      this.physics.add.overlap(this.avatar, this.collectables, this.collectItem, null, this);
 
       this.cursors = this.input.keyboard.createCursorKeys();
     }
@@ -78,5 +105,9 @@ class Play extends Phaser.Scene {
         else {
           this.avatar.play(`idle`, true);
         }
+      }
+
+      collectItem(avatar, item) {
+        item.destroy();
       }
     }
