@@ -6,14 +6,18 @@ class Play extends Phaser.Scene {
     }
   
     create() {
-      this.wall = this.add.sprite(100, 100, `wall`);
+      this.wall = this.physics.add.sprite(100, 100, `wall`);
       this.wall.setTint(`0xdd3333`);
   
-      this.avatar = this.add.sprite(200, 200, `avatar`);
+      this.avatar = this.physics.add.sprite(200, 200, `avatar`);
   
       this.createAnimations();
-  
-      this.avatar.play(`idle`);
+
+      this.avatar.setVelocityX(100);
+      this.avatar.play(`moving`);
+      this.avatar.setCollideWorldBounds(true);
+
+      this.cursors = this.input.keyboard.createCursorKeys();
     }
   
     createAnimations() {
@@ -41,6 +45,38 @@ class Play extends Phaser.Scene {
     }
   
     update() {
-  
+        this.handleInput();
+      }
+    
+      handleInput() {
+        
+        if (this.cursors.left.isDown) {
+          this.avatar.setVelocityX(-100);
+        }
+        else if (this.cursors.right.isDown) {
+          this.avatar.setVelocityX(100);
+        }
+        else {
+          this.avatar.setVelocityX(0);
+        }
+    
+        if (this.cursors.up.isDown) {
+          this.avatar.setVelocityY(-100);
+        }
+        else if (this.cursors.down.isDown) {
+          this.avatar.setVelocityY(100);
+        }
+        else {
+          this.avatar.setVelocityY(0);
+        }
+    
+        
+        if (this.avatar.body.velocity.x !== 0 || this.avatar.body.velocity.y !== 0) {
+         
+          this.avatar.play(`moving`, true);
+        }
+        else {
+          this.avatar.play(`idle`, true);
+        }
+      }
     }
-  }
