@@ -6,6 +6,21 @@ class Boot extends Phaser.Scene {
     });
   }
 
+  preload() {
+  
+    this.load.image(`wall`, `assets/images/wall.png`);
+    
+    this.load.spritesheet(`avatar`, `assets/images/avatar.png`, {
+      frameWidth: 32,
+      frameHeight: 32,
+      endFrame: 7
+    });
+
+    this.load.on(`complete`, () => {
+      this.scene.start(`play`);
+    });
+  }
+
   create() {
     let loadingTextStyle = {
       fontFamily: "sans-serif",
@@ -16,7 +31,6 @@ class Boot extends Phaser.Scene {
     let loadingString = `Loading...`;
     this.loadingText = this.add.text(100, 100, loadingString, loadingTextStyle);
 
-    this.scene.start(`play`);
   }
 
   update() {

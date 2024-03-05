@@ -6,16 +6,38 @@ class Play extends Phaser.Scene {
     }
   
     create() {
-    
-      let style = {
-        fontFamily: `sans-serif`,
-        fontSize: `40px`,
-        fill: `#ffffff`,
+      this.wall = this.add.sprite(100, 100, `wall`);
+      this.wall.setTint(`0xdd3333`);
+  
+      this.avatar = this.add.sprite(200, 200, `avatar`);
+  
+      this.createAnimations();
+  
+      this.avatar.play(`idle`);
+    }
+  
+    createAnimations() {
+      let movingAnimationConfig = {
+        key: `moving`,
+        frames: this.anims.generateFrameNumbers(`avatar`, {
+          start: 0,
+          end: 3
+        }),
+        frameRate: 30,
+        repeat: -1
       };
-      let gameDescription = `Where are you going? Choose path.`;
-    
-      this.gameText = this.add.text(100, 100, gameDescription, style);
-    
+      this.anims.create(movingAnimationConfig);
+  
+      let idleAnimationConfig = {
+        key: `idle`,
+        frames: this.anims.generateFrameNumbers(`avatar`, {
+          start: 0,
+          end: 0
+        }),
+        
+        repeat: 0
+      };
+      this.anims.create(idleAnimationConfig);
     }
   
     update() {
