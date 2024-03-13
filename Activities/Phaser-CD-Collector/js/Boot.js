@@ -11,6 +11,7 @@ class Boot extends Phaser.Scene {
     this.load.image(`wall`, `assets/images/wall.png`);
     this.load.image(`box`, `assets/images/box.png`);
     this.load.image(`cd`, `assets/images/cd.png`);
+    this.load.image(`hud`, `assets/images/hud.png`);
     
     this.load.spritesheet(`avatar`, `assets/images/avatar.png`, {
       frameWidth: 32,

@@ -4,52 +4,58 @@ class Play extends Phaser.Scene {
         key: `play`
       });
     }
-  
+    
     create() {
+      this.collectedCount = 0
+      this.hudHeight = 80 
+      this.wallCount = 100
+      this.boxCount = 100
+      this.cdCount = 20
 
+      this.collectables = this.physics.add.group({
+        key: `cd`,
+        immovable: true,
+        quantity: this.cdCount,
+      });
+    
+      this.collectables.children.each(function(collectable) {
+          let x = Phaser.Math.Between(this.hudHeight, this.sys.canvas.width - this.hudHeight);
+          let y = Phaser.Math.Between(this.hudHeight, this.sys.canvas.height - this.hudHeight);
+
+          collectable.setPosition(x, y);
+      }, this);
+  
+      
       this.walls = this.physics.add.group({
         key: `wall`,
         immovable: true,
-        quantity: 40,
-    });
-    this.walls.children.each(function(wall) {
-        let x = Phaser.Math.Between(0, this.sys.canvas.width);
-        let y = Phaser.Math.Between(0, this.sys.canvas.height);
-
-        wall.setPosition(x, y);
+        quantity: this.wallCount,
+      });
+      
+      this.walls.children.each(function(wall) {
+        let col = Phaser.Math.Between(1,36)
+        let row = Phaser.Math.Between(2,22)
+        wall.setPosition(col*36, row*36);
         wall.setTint(`0xdd3333`);
-    }, this);
+      }, this);
 
-    this.boxes = this.physics.add.group({
-      key: `box`,
-      immovable: true,
-      quantity: 40,
-  });
-  this.boxes.children.each(function(box) {
-      let x = Phaser.Math.Between(0, this.sys.canvas.width);
-      let y = Phaser.Math.Between(0, this.sys.canvas.height);
-
-      box.setPosition(x, y);
-  }, this);
-
-    this.collectables = this.physics.add.group({
-        key: `cd`,
+      this.boxes = this.physics.add.group({
+        key: `box`,
         immovable: true,
-        quantity: 20,
-    });
-    this.collectables.children.each(function(collectable) {
-        let x = Phaser.Math.Between(0, this.sys.canvas.width);
-        let y = Phaser.Math.Between(0, this.sys.canvas.height);
+        quantity: this.boxCount,
+      });
+      
+      this.boxes.children.each(function(box) {
+        let col = Phaser.Math.Between(1,36)
+        let row = Phaser.Math.Between(2,22)
+        box.setPosition(col*36, row*36);
+      }, this);
 
-        collectable.setPosition(x, y);
-    }, this);
-  
-      this.avatar = this.physics.add.sprite(200, 200, `avatar`);
+      this.avatar = this.physics.add.sprite(20, 100, `avatar`);
   
       this.createAnimations();
 
       this.avatar.setVelocityX(100);
-      //this.avatar.play(`moving`);
       this.avatar.setCollideWorldBounds(true);
 
       this.physics.add.collider(this.avatar, this.walls);
@@ -58,6 +64,20 @@ class Play extends Phaser.Scene {
 
       this.cursors = this.input.keyboard.createCursorKeys();
 
+      let style = {
+        fontFamily: `sans-serif`,
+        fontSize: `30px`,
+        fill: `#ffffff`,
+      };
+      
+      let collected = `Collected CDs: ` + this.collectedCount + '/20';
+      
+      this.hud = this.physics.add.sprite(0, 0, `hud`);
+      this.hud.body.immovable = true;
+      this.physics.add.collider(this.avatar, this.hud);
+      this.titleText = this.add.text(15, 10, "Thrift Store DJ", style);
+      this.hudText = this.add.text(905, 10, collected, style);
+      
     }
   
     createAnimations() {  
@@ -111,6 +131,10 @@ class Play extends Phaser.Scene {
 
       collectItem(avatar, item) {
         item.destroy();
+        
+        this.collectedCount++
+        this.hudText.text = `Collected CDs: ` + this.collectedCount  + '/20';
+        
         let soundName = "cd" + (Math.ceil(Math.random()*3)).toString()
         this.sound.play(soundName);
       }
