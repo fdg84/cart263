@@ -23,11 +23,11 @@ class Boot extends Phaser.Scene {
     });
 
     // // CHANGE SOUNDS FX
-    // this.load.setPath('assets/sounds');
+    this.load.setPath('assets/sounds');
 
-    // this.load.audio('cd1', 'cd1.wav');
-    // this.load.audio('cd2', 'cd2.wav');
-    // this.load.audio('cd3', 'cd3.wav');
+    this.load.audio('cd1', 'cd1.mp3');
+    this.load.audio('cd2', 'cd2.mp3');
+    this.load.audio('cd3', 'cd3.mp3');
   }
 
   create() {

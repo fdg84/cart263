@@ -49,7 +49,7 @@ class Play extends Phaser.Scene {
       this.createAnimations();
 
       this.avatar.setVelocityX(100);
-      this.avatar.play(`moving`);
+      //this.avatar.play(`moving`);
       this.avatar.setCollideWorldBounds(true);
 
       this.physics.add.collider(this.avatar, this.walls);
@@ -102,7 +102,7 @@ class Play extends Phaser.Scene {
         
         if (this.avatar.body.velocity.x !== 0 || this.avatar.body.velocity.y !== 0) {
          
-          this.avatar.play(`moving`, true);
+          //this.avatar.play(`moving`, true);
         }
         else {
           this.avatar.play(`idle`, true);
@@ -111,10 +111,7 @@ class Play extends Phaser.Scene {
 
       collectItem(avatar, item) {
         item.destroy();
-
-        // // SOUND FX - NEED TO RANDOMIZE
-        // this.sound.play('cd1');
-        // this.sound.play('cd2');
-        // this.sound.play('cd3');
+        let soundName = "cd" + (Math.ceil(Math.random()*3)).toString()
+        this.sound.play(soundName);
       }
     }
