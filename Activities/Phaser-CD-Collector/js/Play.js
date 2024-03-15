@@ -8,8 +8,9 @@ class Play extends Phaser.Scene {
     create() {
       this.collectedCount = 0
       this.hudHeight = 80 
-      this.wallCount = 100
-      this.boxCount = 100
+      this.wallCount = 80
+      this.boxCount = 80
+      this.quiltCount = 40
       this.cdCount = 20
       this.startTime = 60
       this.currentTime = 60
@@ -53,6 +54,18 @@ class Play extends Phaser.Scene {
         box.setPosition(col*36, row*36);
       }, this);
 
+      this.quilts = this.physics.add.group({
+        key: `quilt`,
+        immovable: true,
+        quantity: this.quiltCount,
+      });
+      
+      this.quilts.children.each(function(quilt) {
+        let col = Phaser.Math.Between(2,36)
+        let row = Phaser.Math.Between(2,22)
+        quilt.setPosition(col*36, row*36);
+      }, this);
+
       this.avatar = this.physics.add.sprite(20, 100, `avatar`);
   
       this.createAnimations();
@@ -62,6 +75,7 @@ class Play extends Phaser.Scene {
 
       this.physics.add.collider(this.avatar, this.walls);
       this.physics.add.collider(this.avatar, this.boxes);
+      this.physics.add.collider(this.avatar, this.quilts);
       this.physics.add.overlap(this.avatar, this.collectables, this.collectItem, null, this);
 
       this.cursors = this.input.keyboard.createCursorKeys();
@@ -113,7 +127,7 @@ class Play extends Phaser.Scene {
       }
       
       if (this.collectedCount == this.cdCount){
-        this.lostText.setText("Good Work Loser!")
+        this.lostText.setText("Good Work DJ!!!")
         
         if(!this.gameOver){
           setTimeout(() => this.reset(), 5000)

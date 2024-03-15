@@ -10,6 +10,7 @@ class Boot extends Phaser.Scene {
   
     this.load.image(`wall`, `assets/images/wall.png`);
     this.load.image(`box`, `assets/images/box.png`);
+    this.load.image(`quilt`, `assets/images/quilt.png`);
     this.load.image(`cd`, `assets/images/cd.png`);
     this.load.image(`hud`, `assets/images/hud.png`);
     
