@@ -26,11 +26,11 @@ function preload() {
 // Voice Activated Word Bank
 const commands = [
   {
-    "command": ["hello", "hi", "hey"],
+    "command": ["hello"],
     "callback": hello
   },
   {
-    "command": ["wet", "what"],
+    "command": ["wet"],
     "callback": wet
   },
   {
@@ -42,11 +42,11 @@ const commands = [
     "callback": bubbly
   },
   {
-    "command": ["air", "hair", "pair", "dare"],
+    "command": ["air"],
     "callback": air
   },
   {
-    "command": ["flow", "glow", "blow", "slow"],
+    "command": ["flow"],
     "callback": flow
   },
 ];

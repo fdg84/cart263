@@ -1,4 +1,4 @@
-# VOICE ACTIVATED AUDIO
+# AI HAIKU
 ## Francis Ouellette
 
 Inspired by Pippin Barr
@@ -10,5 +10,3 @@ One important detail: click the screen before starting.
 
 It takes a second for the recognizer to activate properly on my computer, so please be patient when starting the program. Thank you and enjoy!
 
-Video documentation:
-https://youtu.be/iVUKoQ4oN08
