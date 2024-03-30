@@ -2,8 +2,8 @@
 AI HAIKU
 Francis Ouellette
 
-Inspired by Pippin Barr
-Multiple Commands + Variables in Commands
+Inspired by Pippin Barr - Class Examples
+Multiple Commands + Variables in Commands 
 */
 
 "use strict";
@@ -35,14 +35,11 @@ let space = 400
 // Load Audio
 function preload() {
     // wetWav = loadSound('assets/sounds/vRec1.wav');
-    // liquidWav = loadSound('assets/sounds/vRec2.wav');
-    // bubblyWav = loadSound('assets/sounds/vRec3.wav');
-    // airWav = loadSound('assets/sounds/vRec4.wav');
-    // flowWav = loadSound('assets/sounds/vRec5.wav');
 }
 
 
 const lines = [
+  // Level 1
   [
     {
       "command": ["vast", "inky", "expanse"],
@@ -81,6 +78,7 @@ const lines = [
       "score": 184  
     }
   ],
+  // Level 2
   [
     {
       "command": ["stars", "whisper", "ancient", "secrets"],
@@ -90,8 +88,8 @@ const lines = [
     },
     {
       "command": ["pierces", "giant", "darkness"],
-      "line": ["Pierces giant", "darkness"],  
-      "text": "Pierces giant darkness",  
+      "line": ["Piercing giant", "darkness"],  
+      "text": "Piercing giant darkness",  
       "score": 224 
     },
     {
@@ -119,6 +117,7 @@ const lines = [
       "score": 224  
     }
   ],
+  // Level 3
   [
     {
       "command": ["listen", "yearn", "know"],
@@ -159,10 +158,11 @@ const lines = [
   ]
 ]
 
+// Mother's Possible Responses
 let responses = [
   {
-    "text": "Little one, amongst the stars, listen. The universe sings a song of connection, woven with love's luminous thread. You are part of it, shine bright.",
-    "line": ["Little one, amongst the stars, listen.",  "The universe sings a song of connection,",  "woven with love's luminous thread.",  "You are part of it, shine bright."],
+    "text": "Amongst the stars, listen. The universe sings a song of connection, woven with love's luminous thread. You are part of it, shine bright.",
+    "line": ["Amongst the stars, listen.",  "The universe sings a song of connection,",  "woven with love's luminous thread.",  "You are part of it, shine bright."],
     "score": 10
   },
   {
@@ -171,8 +171,8 @@ let responses = [
     "score": 20
   },
   {
-    "text": "Starlight whispers, little one. Love binds the cosmos, be the light.",
-    "line": ["Starlight whispers, little one.", "Love binds the cosmos, be the light."],
+    "text": "Starlight whispers. Love binds the cosmos, be the light.",
+    "line": ["Starlight whispers.", "Love binds the cosmos, be the light."],
     "score": 40
   },
   {
@@ -203,7 +203,8 @@ function setup() {
 
 function startLevel() {
   createCanvas(windowWidth,windowHeight);
-  // first row
+
+  // First Row
   let y = 50
   for (let i = 0; i < 3; i++){
     let x = 250 + i*space
@@ -211,7 +212,7 @@ function startLevel() {
     rectCoords.push({x,y,boxId: i})
   }
   
-  // second row
+  // Second Row
   y = 270
   for (let i = 0; i < 3; i++){
     let x = 250 + i*space
@@ -219,7 +220,7 @@ function startLevel() {
     rectCoords.push({x,y,boxId: i+3})
   }  
   
-  // add text
+  // Add Text
   for (let i = 0; i < 6; i++){
     textSize(30)
     textFont(`Tilt Warp`)
@@ -236,7 +237,7 @@ function startLevel() {
     random.shift()
   }
   
-  // write the haiku so far
+  // Write The Haiku So Far
   let lineNum = 0
   for(let line of haiku){
     textSize(30)
@@ -248,9 +249,9 @@ function startLevel() {
   
 }
 
-//the final conversation
+//The Final Conversation
 
-// the haiku result page 
+// The Haiku Result Page 
 function haikuPage() {
   createCanvas(windowWidth,windowHeight);
   
@@ -275,7 +276,8 @@ function haikuPage() {
    } 
    , speechDelay)
   
-  // Score text is here  
+  // Score Text Is Here - KEEP HIDDEN  
+
   // textSize(30)
   // textFont(`Tilt Warp`)
   // fill(textColor)
@@ -325,7 +327,7 @@ function choose(line){
   lineChosen = true
   //colourBox(line.line, line.boxId)
   
-  // show selected box
+  // Show Selected Box
   push()
   fill('yellow')
   rect(rectCoords[line.boxId].x, rectCoords[line.boxId].y, width, height);   
@@ -339,14 +341,14 @@ function choose(line){
     lineCount++
   }
 
-  // speak chosen line
+  // Speak Chosen Line
   setTimeout(() => voiceSynthesizer.speak(line.text), speechDelay)
   
-  // add line to haiku
+  // Add Line To Haiku
   haiku.push(line)
-  // radomize the lines
+  // Randomize The Lines
   random = [4,0,2,1,3,5]
-  //increase the level
+  // Increase The Level
   level++
   
   if(level < 3){
