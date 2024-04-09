@@ -1,9 +1,6 @@
 /**
-ASK TH3RA
+ASK TH3RA - Interactive AI Therapist
 Francis Ouellette
-
-Inspired by Pippin Barr - Class Examples
-Multiple Commands + Variables in Commands 
 */
 
 "use strict";
@@ -39,6 +36,8 @@ function preload() {
 
 
 const lines = [
+  // Level 0 - Intro Page (NEED TO ADD)
+  //
   // Level 1
   [
     {
@@ -315,21 +314,22 @@ function startLevel() {
     random.shift()
   }
   
-  // Write The Haiku So Far
-  let lineNum = 0
-  for(let line of haiku){
-    textSize(30)
-    textFont(`Tilt Warp`)
-    fill(textColor)
-    text(line.text, windowWidth/2-100, 520 + lineNum*50);
-    lineNum++
-  }
+  // Write The Chosen Text So Far (On Screen)
+
+  // let lineNum = 0
+  // for(let line of haiku){
+  //   textSize(30)
+  //   textFont(`Tilt Warp`)
+  //   fill(textColor)
+  //   text(line.text, windowWidth/2-100, 520 + lineNum*50);
+  //   lineNum++
+  // }
   
 }
 
 //The Final Conversation
 
-// The Haiku Result Page 
+// PLAYER - Chosen Answers (Result Page)
 function haikuPage() {
   createCanvas(windowWidth,windowHeight);
   
