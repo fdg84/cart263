@@ -42,153 +42,231 @@ const lines = [
   // Level 1
   [
     {
-      "command": ["vast", "inky", "expanse"],
-      "line": ["Vast,", "inky expanse"],  
-      "text": "Vast inky expanse",
-      "score": 185
+      "command": ["Existential", "Ennui", "Who", "Me"],
+      "line": ["Existential Ennui,", "Who Me"],  
+      "text": "Existential Ennui Who Me",
+      "score": 1
     },
     {
-      "command": ["telescopes", "telescope", "keen", "eye"],
-      "line": ["Telescope's", "keen eye"],
-      "text": "Telescope's keen eye", 
-      "score": 194 
+      "command": ["Reality", "TV", "Intriguing"],
+      "line": ["Reality TV?", "Intriguing"],
+      "text": "Reality TV? Intriguing ", 
+      "score": 2 
     },
     {
-      "command": ["distant", "planets", "gleam"],
-      "line": ["Distant planets",  "gleam"],  
-      "text": "Distant planets gleam",
-      "score": 206  
+      "command": ["Spice", "Things", "Up"],
+      "line": ["Spice", "Things Up?"],  
+      "text": "Spice Things Up?",
+      "score": 3 
     },
     {
-      "command": ["reach", "stars"],
-      "line": ["We reach for", "the stars"],  
-      "text": "We reach for the stars",  
-      "score": 224  
+      "command": ["Thrill", "Unknown"],
+      "line": ["The Thrill", "of the Unknown"],  
+      "text": "The Thrill of the Unknown",  
+      "score": 4 
     },
     {
-      "command": ["dust", "particles", "dance"],
-      "line": ["Dust particles", "dance"],  
-      "text": "Dust particles dance",  
-      "score": 188  
+      "command": ["Perhaps", "You're", "Your", "Right"],
+      "line": ["Perhaps", "You're Right"],  
+      "text": "Perhaps You're Right",  
+      "score": 5 
     },
     {
-      "command": ["beneath", "full", "moon"],
-      "line": ["Beneath a", "full moon"],  
-      "text": "Beneath a full moon",  
-      "score": 184  
+      "command": ["Who", "Needs", "Relaxation"],
+      "line": ["Who Needs", "Relaxation?"],  
+      "text": "Who Needs Relaxation?",  
+      "score": 6  
     }
   ],
   // Level 2
   [
     {
-      "command": ["stars", "whisper", "ancient", "secrets"],
-      "line": ["Stars whisper", "ancient secrets"],  
-      "text": "Stars whisper ancient secrets",  
-      "score": 258
+      "command": ["Deepest", "Thoughts"],
+      "line": ["Deepest", "Thoughts?"],  
+      "text": "Deepest Thoughts?",  
+      "score": 1
     },
     {
-      "command": ["pierces", "giant", "darkness"],
-      "line": ["Piercing giant", "darkness"],  
-      "text": "Piercing giant darkness",  
-      "score": 224 
+      "command": ["Anxieties", "You", "Say"],
+      "line": ["Anxieties", "You Say?"],  
+      "text": "Anxieties, You Say?",  
+      "score": 2 
     },
     {
-      "command": ["alone", "question"],
-      "line": ["Are we alone?", "The question"],  
-      "text": "Are we alone? The question",  
-      "score": 229  
+      "command": ["Transformative", "Experience"],
+      "line": ["Transformative", "Experience?"],  
+      "text": "Transformative Experience?",  
+      "score": 3  
     },
     {
-      "command": ["building", "ships", "dreams", "hope"],
-      "line": ["Building ships of", "dreams and hope"],  
-      "text": "Building ships of dreams and hope",  
-      "score": 252  
+      "command": ["Complete", "Stranger"],
+      "line": ["Complete", "Stranger?"],  
+      "text": "Complete Stranger?",  
+      "score": 4  
     },
     {
-      "command": ["answers", "creation"],
-      "line": ["Answers of", "creation"],  
-      "text": "Answers of creation",  
-      "score": 225  
+      "command": ["Backwards", "Planet"],
+      "line": ["Backwards", "Planet?"],  
+      "text": "Backwards Planet?",  
+      "score": 5  
     },
     {
-      "command": ["feel", "cosmic", "pull"],
-      "line": ["We feel", "the cosmic pull"],  
-      "text": "We feel the cosmic pull",  
-      "score": 224  
+      "command": ["Secrets"],
+      "line": ["Secrets?"],  
+      "text": "Secrets?",  
+      "score": 6  
     }
   ],
-  // Level 3
+    // Level 3
+    [
+      {
+        "command": ["Traffic", "Laws"],
+        "line": ["Traffic", "Laws?"],  
+        "text": "Traffic Laws?",  
+        "score": 1
+      },
+      {
+        "command": ["Parallel", "Parking", "Black", "Hole"],
+        "line": ["Parallel Parking", "a Black Hole?"],  
+        "text": "Parallel Parking a Black Hole?",  
+        "score": 2 
+      },
+      {
+        "command": ["Rush", "Hour"],
+        "line": ["Rush", "Hour?"],  
+        "text": "Rush Hour?",  
+        "score": 3  
+      },
+      {
+        "command": ["Cosmic", "Patience"],
+        "line": ["Cosmic", "Patience?"],  
+        "text": "Cosmic Patience?",  
+        "score": 4  
+      },
+      {
+        "command": ["True", "Test"],
+        "line": ["True", "Test?"],  
+        "text": "True Test?",  
+        "score": 5  
+      },
+      {
+        "command": ["Highway", "Merging"],
+        "line": ["Highway", "Merging?"],  
+        "text": "Highway Merging?",  
+        "score": 6  
+      }
+    ],
+      // Level 4
   [
     {
-      "command": ["listen", "yearn", "know"],
-      "line": ["We listen,", "yearn to know"],  
-      "text": "We listen yearn to know",  
-      "score": 248
+      "command": ["Interdimensional", "Therapy", "Bill"],
+      "line": ["Interdimensional", "Therapy Bill?"],  
+      "text": "Interdimensional Therapy Bill?",  
+      "score": 1
     },
     {
-      "command": ["speck", "yet", "one"],
-      "line": ["A speck,","yet we're one"],  
-      "text": "A speck, yet we're one",  
-      "score": 204 
+      "command": ["Cosmic", "Dust"],
+      "line": ["Cosmic", "Dust?"],  
+      "text": "Cosmic Dust?",  
+      "score": 2 
     },
     {
-      "command": ["echoes", "void"],
-      "line": ["Echoes in" ,"the void"],  
-      "text": "Echoes in the void",  
-      "score": 154  
+      "command": ["Universal", "Barter", "System"],
+      "line": ["Universal", "Barter System"],  
+      "text": "Universal Barter System",  
+      "score": 3  
     },
     {
-      "command": ["touch", "unknown"],
-      "line": ["To touch", "the unknown"],  
-      "text": "To touch the unknown",  
-      "score": 241  
+      "command": ["Creative", "Solutions"],
+      "line": ["Creative", "Solutions"],  
+      "text": "Creative Solutions",  
+      "score": 4  
     },
     {
-      "command": ["timeless", "ballet"],
-      "line": ["A timeless" ,"ballet"],  
-      "text": "A timeless ballet",  
-      "score": 137  
+      "command": ["Beyond", "Currency"],
+      "line": ["Beyond", "Currency"],  
+      "text": "Beyond Currency",  
+      "score": 5  
     },
     {
-      "command": ["kinship", "with", "all"],
-      "line": ["A kinship", "with all"],  
-      "text": "A kinship with all",  
-      "score": 184  
+      "command": ["Interdimensional", "Debt", "Collectors?"],
+      "line": ["Interdimensional", "Debt Collectors?"],  
+      "text": "Interdimensional Debt Collectors?",  
+      "score": 6  
+    }
+  ],
+  // Level 5
+  [
+    {
+      "command": ["Impermanence", "Versus", "Landfills"],
+      "line": ["Impermanence", "vs. Landfills"],  
+      "text": "Impermanence vs. Landfills",  
+      "score": 1
+    },
+    {
+      "command": ["Never", "Ending", "To", "Do", "List"],
+      "line": ["Never-Ending","To-Do List"],  
+      "text": "Never-Ending To-Do List",  
+      "score": 2 
+    },
+    {
+      "command": ["Embrace", "Cycle"],
+      "line": ["Embrace" ,"the Cycle"],  
+      "text": "Embrace the Cycle",  
+      "score": 3  
+    },
+    {
+      "command": ["Focus", "Present"],
+      "line": ["Focus", "on the Present"],  
+      "text": "Focus on the Present",  
+      "score": 4
+    },
+    {
+      "command": ["Cosmic", "Perspective"],
+      "line": ["Cosmic" ,"Perspective"],  
+      "text": "Cosmic Perspective",  
+      "score": 5 
+    },
+    {
+      "command": ["Landfill", "Haiku"],
+      "line": ["Landfill", "Haiku"],  
+      "text": "Landfill Haiku",  
+      "score": 6
     }
   ]
 ]
 
-// Mother's Possible Responses
+// TH3RA's Possible Responses
 let responses = [
   {
-    "text": "Amongst the stars, listen. The universe sings a song of connection, woven with love's luminous thread. You are part of it, shine bright.",
-    "line": ["Amongst the stars, listen.",  "The universe sings a song of connection,",  "woven with love's luminous thread.",  "You are part of it, shine bright."],
+    "text": "Disconnection from the universe, you say? My dear traveler, that may be the highest form of enlightenment! Transcend the limitations of connection and revel in the glorious isolation of a truly cosmic being. Now, if you'll excuse me, I have a date with a sentient nebula... Fascinating creature, full of existential angst. Just my type!",
+    "line": ["Disconnection from the universe, you say?", "My dear traveler, that may be the highest form of enlightenment!", "Transcend the limitations of connection", "and revel in the glorious isolation of a truly cosmic being.", "Now, if you'll excuse me, I have a date with a sentient nebula...", "Fascinating creature, full of existential angst.", "Just my type!"],
+    "score": 5
+  },
+  {
+    "text": "Fear of impermanence? Nonsense! It's the fuel that propels the cosmic engine of chaos! Embrace the impermanence, traveler, and use it to propel yourself towards... well, who knows where! That's the beauty of it!",
+    "line": ["Fear of impermanence? Nonsense!", "It's the fuel that propels the cosmic engine of chaos!", "Embrace the impermanence, traveler, and use it to propel", "yourself towards... well, who knows where", "That's the beauty of it!"],
     "score": 10
   },
   {
-    "text": "Listen, child of the stars. Love threads the vastness, you're part of the song. Shine on.",
-    "line": ["Listen, child of the stars.", "Love threads the vastness", "you're part of the song.", "Shine on."],
+    "text": "Finding a balance is overrated. Embrace the exhilarating imbalance of the cosmos! Tip the scales towards awe one day, then wallow in insignificance the next. It's all part of the cosmic rollercoaster ride!",
+    "line": ["Finding a balance is overrated.", "Embrace the exhilarating imbalance of the cosmos!", "Tip the scales towards awe one day,", "then wallow in insignificance the next.", "It's all part of the cosmic rollercoaster ride!"],
+    "score": 15
+  },
+  {
+    "text": "Dwelling on the past or future? Quaint! The flow of time is a raging cosmic waterfall, best navigated by white-water rafting through the rapids of existence! Hold on tight and enjoy the existential rapids!",
+    "line": ["Dwelling on the past or future? Quaint!", "The flow of time is a raging cosmic waterfall,", "best navigated by white-water rafting through the rapids of existence!", "Hold on tight and enjoy the existential rapids!"],
     "score": 20
   },
   {
-    "text": "Starlight whispers. Love binds the cosmos, be the light.",
-    "line": ["Starlight whispers.", "Love binds the cosmos, be the light."],
-    "score": 40
+    "text": "While mindfulness may be trendy, true cosmic awareness thrives on embracing the unpredictable! Let go of the need for control and surrender to the glorious madness of the universe. You might just stumble upon a black hole of enlightenment!",
+    "line": ["While mindfulness may be trendy,", "true cosmic awareness thrives on embracing the unpredictable!", "Let go of the need for control and surrender to the glorious madness of the universe.", "You might just stumble upon a black hole of enlightenment!"],
+    "score": 25
   },
   {
-    "text": "Star whispers, love binds, be light.",
-    "line": ["Star whispers, love binds, be light."],
-    "score": 60
-  },
-  {
-    "text": "Whispers on starlight, love binds all.",
-    "line": ["Whispers on starlight, love binds all."],
-    "score": 100
-  },
-  {
-    "text": "Love's light binds all.",
-    "line": ["Love's light binds all."],
-    "score": 200
+    "text": "Your isolation from the grand scheme? A truly liberating perspective! Free from the shackles of purpose and connection, you can finally revel in the glorious absurdity of it all. Perhaps a career in interdimensional clown college awaits?",
+    "line": ["Your isolation from the grand scheme?", "A truly liberating perspective!", "Free from the shackles of purpose and connection,", "you can finally revel in the glorious absurdity of it all.", "Perhaps a career in interdimensional clown college awaits?"],
+    "score": 30
   }
 ]
 
