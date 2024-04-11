@@ -198,11 +198,11 @@ function setup() {
   voiceRecognizer.onResult = onResult;
   voiceRecognizer.start();
 
-  console.log(voiceSynthesizer.listVoices());
-  voiceSynthesizer.setPitch(0.1);
-  voiceSynthesizer.setRate(0.5);
-  voiceSynthesizer.setVoice(`Google UK English Female`);
-  
+  // console.log(voiceSynthesizer.listVoices());
+  // voiceSynthesizer.setPitch(0.1);
+  // voiceSynthesizer.setRate(0.5);
+  // voiceSynthesizer.setVoice(`Google UK English Female`);
+
   textFont(`Tilt Warp`)
   startLevel()
 }
