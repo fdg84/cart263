@@ -1,12 +1,15 @@
-# AI HAIKU
+# h(AI)ku
 ## Francis Ouellette
 
-Inspired by Pippin Barr
-Multiple Commands + Variables in Commands
+Inspired by Pippin Barr (Class Examples)
 
-For the Voice Jam exercise, I used the speech recognizer to display a series of voice activated words, changing the colors and playing audio snippets of music I created. There is also an extra phrase that can be spoken by the speech-bot, when saluted correctly. 
+h(AI)ku is a poetic AI experience, in which the player, Starchild, uses their voice to collect text fragments, unlocking a conversation with their long lost cosmic Mother.
 
-One important detail: click the screen before starting. 
+** Important Detail ** 
+DEBUGGING - unlock/re-lock console log + Save >>
 
-It takes a second for the recognizer to activate properly on my computer, so please be patient when starting the program. Thank you and enjoy!
+Line 209 - TURN THIS ON & OFF TO REACTIVATE SPEECH BOT
 
+It takes a second for the recognizer to activate properly, so please be patient when starting the program. Thank you and enjoy!
+
+Documentation: https://www.are.na/fdg/cart-315 

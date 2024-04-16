@@ -6,12 +6,12 @@ Inspired by Pippin Barr - Class Examples
 Multiple Commands + Variables in Commands 
 */
 
-"use strict";
+"use strict"; 
 
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
-//let wetWav, liquidWav, bubblyWav, airWav, flowWav
-//let feedbackString = `...`;
+let cd1, cd2, cd3
+//let feedbackString = `...`; 
 
 let textColor = `black`
 let level = 0
@@ -25,7 +25,7 @@ let speechDelay = 500
 let height = 200
 let width = 350
 let space = 400
-  
+
 //voiceSynthesizer.onEnd = onSpeechEnd
 
 // function onSpeechEnd () {
@@ -34,8 +34,13 @@ let space = 400
 
 // Load Audio
 function preload() {
-    // wetWav = loadSound('assets/sounds/vRec1.wav');
+    // cd1 = loadSound('assets/sounds/cd1.mp3');
+    // cd2 = loadSound('assets/sounds/cd2.mp3');
+    // cd3 = loadSound('assets/sounds/cd3.mp3');
+
 }
+
+// MAKE TITLE PAGE
 
 
 const lines = [
@@ -158,7 +163,7 @@ const lines = [
   ]
 ]
 
-// Mother's Possible Responses
+// Mother's Possible Responses 
 let responses = [
   {
     "text": "Amongst the stars, listen. The universe sings a song of connection, woven with love's luminous thread. You are part of it, shine bright.",
@@ -192,30 +197,45 @@ let responses = [
   }
 ]
 
-// Activate Voice Recognizer
+// Activate Voice Recognizer + SETTINGS
+
 function setup() {
   voiceRecognizer.continuous = true;
   voiceRecognizer.onResult = onResult;
   voiceRecognizer.start();
-  textFont(`Tilt Warp`)
+
+  //
+  //
+  // TURN THIS ON & OFF TO REACTIVATE SPEECH BOT
+  //
+  //
+  
+  // console.log(voiceSynthesizer.listVoices());
+  voiceSynthesizer.continuous = true;
+  voiceSynthesizer.setPitch(0.1);
+  voiceSynthesizer.setRate(0.5);
+  voiceSynthesizer.setVoice(`Google UK English Female`);
+
+  // textFont(`Tilt Warp`)
+  // textAlign(CENTER);
   startLevel()
 }
 
 function startLevel() {
   createCanvas(windowWidth,windowHeight);
 
-  // First Row
+  // First Row of Boxes
   let y = 50
   for (let i = 0; i < 3; i++){
-    let x = 250 + i*space
+    let x = 200 + i*space
     rect(x, y, width, height);
     rectCoords.push({x,y,boxId: i})
   }
   
-  // Second Row
+  // Second Row of Boxes
   y = 270
   for (let i = 0; i < 3; i++){
-    let x = 250 + i*space
+    let x = 200 + i*space
     rect(x, y, width, height);
     rectCoords.push({x,y,boxId: i+3})
   }  
@@ -223,7 +243,7 @@ function startLevel() {
   // Add Text
   for (let i = 0; i < 6; i++){
     textSize(30)
-    textFont(`Tilt Warp`)
+    // textFont(`Tilt Warp`)
     fill(textColor)
     
     let lineCount = 0
@@ -231,6 +251,8 @@ function startLevel() {
       text(line, rectCoords[i].x + 30, rectCoords[i].y + 100 + 40*lineCount);
       lineCount++
     }
+    // JUMPS LINE IN TEXT BOXES
+
     //text(lines[level][random[0]].line, rectCoords[i].x + 30, rectCoords[i].y + 100);
     
     lines[level][random[0]].boxId = rectCoords[i].boxId
@@ -241,7 +263,7 @@ function startLevel() {
   let lineNum = 0
   for(let line of haiku){
     textSize(30)
-    textFont(`Tilt Warp`)
+    // textFont(`Tilt Warp`)
     fill(textColor)
     text(line.text, windowWidth/2-100, 520 + lineNum*50);
     lineNum++
@@ -260,7 +282,7 @@ function haikuPage() {
   let haikuText = ""
   for(let line of haiku){
     textSize(30)
-    textFont(`Tilt Warp`)
+    // textFont(`Tilt Warp`)
     fill(textColor)
     text(line.text, windowWidth/2-100, 320 + lineNum*50);
     score += line.score
@@ -272,7 +294,7 @@ function haikuPage() {
   
   setTimeout(() => {
     voiceSynthesizer.speak(haikuText)
-    setTimeout(() => motherPage(score) , 5000)
+    setTimeout(() => motherPage(score) , 10000)
    } 
    , speechDelay)
   
@@ -303,7 +325,7 @@ function motherPage(score) {
 
   for(let line of finalResponse.line){
     textSize(30)
-    textFont(`Tilt Warp`)
+    // textFont(`Tilt Warp`)
     fill(textColor)
     text(line, windowWidth/2-100, 320 + lineNum*50);
     lineNum++
@@ -315,11 +337,11 @@ function motherPage(score) {
   
   level = 0
   haiku = []
-  setTimeout(startLevel, 10000)
+  setTimeout(startLevel, 20000)
 }
-
+// Background Color
 function draw() {
-
+  background (37,58,90,3)
 }
 
 // 
@@ -327,12 +349,12 @@ function choose(line){
   lineChosen = true
   //colourBox(line.line, line.boxId)
   
-  // Show Selected Box
+  // SHOW SELECTED BOX (COLOR)
   push()
-  fill('yellow')
+  fill(214, 254, 2)
   rect(rectCoords[line.boxId].x, rectCoords[line.boxId].y, width, height);   
   textSize(30)
-  textFont(`Tilt Warp`)
+  // textFont(`Tilt Warp`)
   fill(textColor)
   
   let lineCount = 0
