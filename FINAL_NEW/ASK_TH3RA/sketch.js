@@ -196,9 +196,9 @@ const lines = [
       // Level 4
   [
     {
-      "command": ["interdimensional", "therapy", "bill"],
-      "line": ["Interdimensional", "Therapy Bill?"],  
-      "text": "Interdimensional Therapy Bill?",  
+      "command": ["multiversant", "therapy", "bill"],
+      "line": ["Multiversant", "Therapy Bill?"],  
+      "text": "multiversant Therapy Bill?",  
       "score": 1
     },
     {
@@ -265,9 +265,9 @@ const lines = [
       "score": 5 
     },
     {
-      "command": ["landfill", "haiku"],
-      "line": ["Landfill", "Haiku"],  
-      "text": "Landfill Haiku",  
+      "command": ["garbage", "haiku"],
+      "line": ["Garbage", "Haiku"],  
+      "text": "garbage Haiku",  
       "score": 6
     }
   ]
