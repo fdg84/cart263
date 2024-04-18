@@ -10,8 +10,6 @@ Multiple Commands + Variables in Commands
 
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
-let cd1, cd2, cd3
-//let feedbackString = `...`; 
 
 let textColor = `black`
 let level = 0
@@ -35,9 +33,6 @@ let isMenuScreen = false
 
 // Load Audio
 function preload() {
-    // cd1 = loadSound('assets/sounds/cd1.mp3');
-    // cd2 = loadSound('assets/sounds/cd2.mp3');
-    // cd3 = loadSound('assets/sounds/cd3.mp3');
     menu = loadImage('assets/images/intro.png');
 
 }
@@ -347,7 +342,7 @@ function motherPage(score) {
   for(let line of finalResponse.line){
     textSize(60)
     // textFont(`Tilt Warp`)
-    fill("white")
+    // fill("white")
     text(line, windowWidth/2-400, 320 + lineNum*50);
     lineNum++
   }

@@ -7,8 +7,7 @@ Francis Ouellette
 
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
-//let wetWav, liquidWav, bubblyWav, airWav, flowWav
-//let feedbackString = `...`;
+
 
 let textColor = `black`
 let level = 0
@@ -24,7 +23,9 @@ let width = 350
 let space = 400
 let menu
 let isMenuScreen = false
-  
+let cards = [[],[],[],[],[],[]]
+let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6
+
 //voiceSynthesizer.onEnd = onSpeechEnd
 
 // function onSpeechEnd () {
@@ -33,48 +34,75 @@ let isMenuScreen = false
 
 // Load Audio
 function preload() {
-    // wetWav = loadSound('assets/sounds/vRec1.wav');
     menu = loadImage('assets/images/intro.png');
+    
+    l1c1 = loadImage('assets/images/cards/l1c1.png');
+    cards[0].push(l1c1)
+    l1c2 = loadImage('assets/images/cards/l1c2.png');
+    cards[0].push(l1c2)
+    l1c3 = loadImage('assets/images/cards/l1c3.png');
+    cards[0].push(l1c3)
+    l1c4 = loadImage('assets/images/cards/l1c4.png');
+    cards[0].push(l1c4)
+    l1c5 = loadImage('assets/images/cards/l1c5.png');
+    cards[0].push(l1c5)
+    l1c6 = loadImage('assets/images/cards/l1c6.png');
+    cards[0].push(l1c6)
+
+    // l2c1 = loadImage('assets/images/l2c1.png');
+    // cards[1].push(l2c1)
+    // l2c2 = loadImage('assets/images/l2c2.png');
+    // cards[1].push(l2c2)
+    // l2c3 = loadImage('assets/images/l2c3.png');
+    // cards[1].push(l2c3)
+    // l2c4 = loadImage('assets/images/l2c4.png');
+    // cards[1].push(l2c4)
+    // l2c5 = loadImage('assets/images/l2c5.png');
+    // cards[1].push(l2c5)
+    // l2c6 = loadImage('assets/images/l2c6.png');
+    // cards[1].push(l2c6)
 }
 
 
 const lines = [
-  // Level 0 - Intro Page (NEED TO ADD)
-  //
+
   // Level 1
   [
     {
-      "command": ["Existential", "Ennui", "Who", "Me"],
+      "command": ["existential", "ennui", "who", "me"],
       "line": ["Existential Ennui,", "Who Me"],  
       "text": "Existential Ennui Who Me",
+      //"subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 1
     },
     {
-      "command": ["Reality", "TV", "Intriguing"],
+      "command": ["reality", "tv", "intriguing"],
       "line": ["Reality TV?", "Intriguing"],
       "text": "Reality TV? Intriguing ", 
+      //"subtext": "You know, a dimension dedicated to manufactured conflict might provide some fascinating sociological data. Perhaps I could offer a guest appearance as the 'Wise Interdimensional Therapist.'",
       "score": 2 
     },
     {
-      "command": ["Spice", "Things", "Up"],
+      "command": ["spice", "things", "up"],
       "line": ["Spice", "Things Up?"],  
       "text": "Spice Things Up?",
+      //"subtext": "You know, a dimension dedicated to manufactured conflict might provide some fascinating sociological data. Perhaps I could offer a guest appearance as the 'Wise Interdimensional Therapist.'",
       "score": 3 
     },
     {
-      "command": ["Thrill", "Unknown"],
+      "command": ["thrill", "unknown"],
       "line": ["The Thrill", "of the Unknown"],  
       "text": "The Thrill of the Unknown",  
       "score": 4 
     },
     {
-      "command": ["Perhaps", "You're", "Your", "Right"],
+      "command": ["perhaps", "you're", "your", "right"],
       "line": ["Perhaps", "You're Right"],  
       "text": "Perhaps You're Right",  
       "score": 5 
     },
     {
-      "command": ["Who", "Needs", "Relaxation"],
+      "command": ["who", "needs", "relaxation"],
       "line": ["Who Needs", "Relaxation?"],  
       "text": "Who Needs Relaxation?",  
       "score": 6  
@@ -83,37 +111,37 @@ const lines = [
   // Level 2
   [
     {
-      "command": ["Deepest", "Thoughts"],
+      "command": ["deepest", "thoughts"],
       "line": ["Deepest", "Thoughts?"],  
       "text": "Deepest Thoughts?",  
       "score": 1
     },
     {
-      "command": ["Anxieties", "You", "Say"],
+      "command": ["anxieties", "you", "say"],
       "line": ["Anxieties", "You Say?"],  
       "text": "Anxieties, You Say?",  
       "score": 2 
     },
     {
-      "command": ["Transformative", "Experience"],
+      "command": ["transformative", "experience"],
       "line": ["Transformative", "Experience?"],  
       "text": "Transformative Experience?",  
       "score": 3  
     },
     {
-      "command": ["Complete", "Stranger"],
+      "command": ["complete", "stranger"],
       "line": ["Complete", "Stranger?"],  
       "text": "Complete Stranger?",  
       "score": 4  
     },
     {
-      "command": ["Backwards", "Planet"],
+      "command": ["backwards", "planet"],
       "line": ["Backwards", "Planet?"],  
       "text": "Backwards Planet?",  
       "score": 5  
     },
     {
-      "command": ["Secrets"],
+      "command": ["secrets"],
       "line": ["Secrets?"],  
       "text": "Secrets?",  
       "score": 6  
@@ -122,37 +150,37 @@ const lines = [
     // Level 3
     [
       {
-        "command": ["Traffic", "Laws"],
+        "command": ["traffic", "laws"],
         "line": ["Traffic", "Laws?"],  
         "text": "Traffic Laws?",  
         "score": 1
       },
       {
-        "command": ["Parallel", "Parking", "Black", "Hole"],
+        "command": ["parallel", "parking", "black", "hole"],
         "line": ["Parallel Parking", "a Black Hole?"],  
         "text": "Parallel Parking a Black Hole?",  
         "score": 2 
       },
       {
-        "command": ["Rush", "Hour"],
+        "command": ["rush", "hour"],
         "line": ["Rush", "Hour?"],  
         "text": "Rush Hour?",  
         "score": 3  
       },
       {
-        "command": ["Cosmic", "Patience"],
+        "command": ["cosmic", "patience"],
         "line": ["Cosmic", "Patience?"],  
         "text": "Cosmic Patience?",  
         "score": 4  
       },
       {
-        "command": ["True", "Test"],
+        "command": ["true", "test"],
         "line": ["True", "Test?"],  
         "text": "True Test?",  
         "score": 5  
       },
       {
-        "command": ["Highway", "Merging"],
+        "command": ["highway", "merging"],
         "line": ["Highway", "Merging?"],  
         "text": "Highway Merging?",  
         "score": 6  
@@ -161,37 +189,37 @@ const lines = [
       // Level 4
   [
     {
-      "command": ["Interdimensional", "Therapy", "Bill"],
+      "command": ["interdimensional", "therapy", "bill"],
       "line": ["Interdimensional", "Therapy Bill?"],  
       "text": "Interdimensional Therapy Bill?",  
       "score": 1
     },
     {
-      "command": ["Cosmic", "Dust"],
+      "command": ["cosmic", "dust"],
       "line": ["Cosmic", "Dust?"],  
       "text": "Cosmic Dust?",  
       "score": 2 
     },
     {
-      "command": ["Universal", "Barter", "System"],
+      "command": ["universal", "barter", "system"],
       "line": ["Universal", "Barter System"],  
       "text": "Universal Barter System",  
       "score": 3  
     },
     {
-      "command": ["Creative", "Solutions"],
+      "command": ["creative", "solutions"],
       "line": ["Creative", "Solutions"],  
       "text": "Creative Solutions",  
       "score": 4  
     },
     {
-      "command": ["Beyond", "Currency"],
+      "command": ["beyond", "currency"],
       "line": ["Beyond", "Currency"],  
       "text": "Beyond Currency",  
       "score": 5  
     },
     {
-      "command": ["Interdimensional", "Debt", "Collectors?"],
+      "command": ["interdimensional", "debt", "collectors?"],
       "line": ["Interdimensional", "Debt Collectors?"],  
       "text": "Interdimensional Debt Collectors?",  
       "score": 6  
@@ -200,37 +228,37 @@ const lines = [
   // Level 5
   [
     {
-      "command": ["Impermanence", "Versus", "Landfills"],
+      "command": ["impermanence", "versus", "landfills"],
       "line": ["Impermanence", "vs. Landfills"],  
       "text": "Impermanence vs. Landfills",  
       "score": 1
     },
     {
-      "command": ["Never", "Ending", "To", "Do", "List"],
+      "command": ["never", "ending", "to", "do", "list"],
       "line": ["Never-Ending","To-Do List"],  
       "text": "Never-Ending To-Do List",  
       "score": 2 
     },
     {
-      "command": ["Embrace", "Cycle"],
+      "command": ["embrace", "cycle"],
       "line": ["Embrace" ,"the Cycle"],  
       "text": "Embrace the Cycle",  
       "score": 3  
     },
     {
-      "command": ["Focus", "Present"],
+      "command": ["focus", "present"],
       "line": ["Focus", "on the Present"],  
       "text": "Focus on the Present",  
       "score": 4
     },
     {
-      "command": ["Cosmic", "Perspective"],
+      "command": ["cosmic", "perspective"],
       "line": ["Cosmic" ,"Perspective"],  
       "text": "Cosmic Perspective",  
       "score": 5 
     },
     {
-      "command": ["Landfill", "Haiku"],
+      "command": ["landfill", "haiku"],
       "line": ["Landfill", "Haiku"],  
       "text": "Landfill Haiku",  
       "score": 6
@@ -300,7 +328,8 @@ function startLevel() {
   let y = 50
   for (let i = 0; i < 3; i++){
     let x = 250 + i*space
-    rect(x, y, width, height);
+    //rect(x, y, width, height);
+    image(cards[level][i], x, y, width, height);
     rectCoords.push({x,y,boxId: i})
   }
   
@@ -308,7 +337,8 @@ function startLevel() {
   y = 270
   for (let i = 0; i < 3; i++){
     let x = 250 + i*space
-    rect(x, y, width, height);
+    //rect(x, y, width, height);
+    image(cards[level][i+3], x, y, width, height)
     rectCoords.push({x,y,boxId: i+3})
   }  
   
@@ -334,14 +364,14 @@ function startLevel() {
   
 // Write The Chosen Text So Far (On Screen)
 
-let lineNum = 0
-for(let line of haiku){
-textSize(30)
-// textFont(`Tilt Warp`)
-fill(textColor)
-text(line.text, windowWidth/2-100, 520 + lineNum*50);
-lineNum++
-}
+// let lineNum = 0
+// for(let line of haiku){
+// textSize(30)
+// // textFont(`Tilt Warp`)
+// fill(textColor)
+// text(line.text, windowWidth/2-100, 520 + lineNum*50);
+// lineNum++
+// }
   
 }
 
@@ -367,11 +397,12 @@ function haikuPage() {
   let lineNum = 0
   let score = 0
   let haikuText = ""
+  
   for(let line of haiku){
-    textSize(30)
-    textFont(`Tilt Warp`)
-    fill(textColor)
-    text(line.text, windowWidth/2-100, 320 + lineNum*50);
+  //  textSize(30)
+  //  textFont(`Tilt Warp`)
+  //  fill("black")
+  //  text(line.text, windowWidth/2-100, 320 + lineNum*50);
     score += line.score
     lineNum++
     haikuText += ", " + line.text
@@ -379,11 +410,13 @@ function haikuPage() {
   
   console.log("HAIKU ::: ", haikuText)
   
-  setTimeout(() => {
-    voiceSynthesizer.speak(haikuText)
-    setTimeout(() => motherPage(score) , 5000)
-   } 
-   , speechDelay)
+  setTimeout(() => motherPage(score) , 100)
+  
+  // setTimeout(() => {
+  //   //voiceSynthesizer.speak(haikuText)
+    
+  //  } 
+  //  , speechDelay)
   
   // Score Text Is Here - KEEP HIDDEN  
 
@@ -400,10 +433,10 @@ function motherPage(score) {
   let lineNum = 0
   //let responseText = ""
   let finalResponse = {}
-  let finalScore = Math.abs(555 - score)
-  console.log("FINAL SCORE: ", finalScore)
+  //let finalScore = Math.abs(score)
+  // console.log("FINAL SCORE: ", finalScore)
   for(let response of responses){
-    if (finalScore < response.score){
+    if (score < response.score){
       finalResponse = response
       console.log("THIS IS MY FINAL RESPONSE", finalResponse)
       break;
@@ -413,15 +446,15 @@ function motherPage(score) {
   for(let line of finalResponse.line){
     textSize(30)
     textFont(`Tilt Warp`)
-    fill(textColor)
+    fill("black")
     text(line, windowWidth/2-100, 320 + lineNum*50);
     lineNum++
   }
   
   console.log("TEX ::: ", finalResponse.text)
   
-  voiceSynthesizer.setPitch(0.1);
-  voiceSynthesizer.setRate(0.5);
+  voiceSynthesizer.setPitch(0.7);
+  voiceSynthesizer.setRate(1.5);
   voiceSynthesizer.setVoice(`Google UK English Female`);
   setTimeout(voiceSynthesizer.speak(finalResponse.text), speechDelay)
   
@@ -470,8 +503,9 @@ function choose(line){
   random = [4,0,2,1,3,5]
   // Increase The Level
   level++
-  
-  if(level < 3){
+  lineChosen = false
+  console.log("NEW LEVEL: ", level)
+  if(level < 5){
     setTimeout(startLevel, levelDelay)
   }else{
     setTimeout(haikuPage, levelDelay)
@@ -480,7 +514,6 @@ function choose(line){
 
 /// Voice Recorder Callback
 function onResult() {
-  lineChosen = false
   if (!voiceRecognizer.resultValue) {
     return;
   }
@@ -492,12 +525,15 @@ function onResult() {
       // startLevel()  
     }
   } else {
+    console.log('level on result:', level)
     for (let line of lines[level]) {
       for (let word of result.split(" ")){
         if (line.command.includes(word)) {
-          choose(line);
-          break;
-        }    
+          if (!lineChosen){
+            choose(line);
+            break;
+          }
+        }
       }
     }
   }
