@@ -24,7 +24,14 @@ let space = 400
 let menu
 let isMenuScreen = false
 let cards = [[],[],[],[],[],[]]
+
 let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6
+
+// let l2c1,l1c2,l1c3,l1c4,l1c5,l1c6
+// let l3c1,l1c2,l1c3,l1c4,l1c5,l1c6
+// let l4c1,l1c2,l1c3,l1c4,l1c5,l1c6
+// let l5c1,l1c2,l1c3,l1c4,l1c5,l1c6
+// let l6c1,l1c2,l1c3,l1c4,l1c5,l1c6
 
 //voiceSynthesizer.onEnd = onSpeechEnd
 
