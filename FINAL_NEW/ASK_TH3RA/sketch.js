@@ -8,7 +8,6 @@ Francis Ouellette
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
 
-
 let textColor = `black`
 let level = 0
 let rectCoords = []
