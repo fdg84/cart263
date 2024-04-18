@@ -25,7 +25,8 @@ let speechDelay = 500
 let height = 200
 let width = 350
 let space = 400
-
+let menu
+let isMenuScreen = false
 //voiceSynthesizer.onEnd = onSpeechEnd
 
 // function onSpeechEnd () {
@@ -37,6 +38,7 @@ function preload() {
     // cd1 = loadSound('assets/sounds/cd1.mp3');
     // cd2 = loadSound('assets/sounds/cd2.mp3');
     // cd3 = loadSound('assets/sounds/cd3.mp3');
+    menu = loadImage('assets/images/intro.png');
 
 }
 
@@ -211,14 +213,17 @@ function setup() {
   //
   
   // console.log(voiceSynthesizer.listVoices());
+
+
   voiceSynthesizer.continuous = true;
-  voiceSynthesizer.setPitch(0.1);
-  voiceSynthesizer.setRate(0.5);
-  voiceSynthesizer.setVoice(`Google UK English Female`);
+  voiceSynthesizer.setPitch(0.8);
+  voiceSynthesizer.setRate(0.8);
+  voiceSynthesizer.setVoice(`Google UK English Male`);
 
   // textFont(`Tilt Warp`)
   // textAlign(CENTER);
-  startLevel()
+  menuScreen()
+  //startLevel()
 }
 
 function startLevel() {
@@ -269,6 +274,14 @@ function startLevel() {
     lineNum++
   }
   
+}
+
+function menuScreen() {
+  createCanvas(windowWidth,windowHeight);
+  background(255);
+  isMenuScreen = true
+  // Draw the image.
+  image(menu, 200,50, 1200, 675);
 }
 
 //The Final Conversation
@@ -326,13 +339,16 @@ function motherPage(score) {
   for(let line of finalResponse.line){
     textSize(30)
     // textFont(`Tilt Warp`)
-    fill(textColor)
+    fill("white")
     text(line, windowWidth/2-100, 320 + lineNum*50);
     lineNum++
   }
   
   console.log("TEX ::: ", finalResponse.text)
   
+  voiceSynthesizer.setPitch(0.1);
+  voiceSynthesizer.setRate(0.5);
+  voiceSynthesizer.setVoice(`Google UK English Female`);
   setTimeout(voiceSynthesizer.speak(finalResponse.text), speechDelay)
   
   level = 0
@@ -341,7 +357,9 @@ function motherPage(score) {
 }
 // Background Color
 function draw() {
-  background (37,58,90,3)
+  if (!isMenuScreen) {
+    background (37,58,90,3)
+  }
 }
 
 // 
@@ -388,12 +406,19 @@ function onResult() {
   }
   console.log(voiceRecognizer.resultString);
   let result  = voiceRecognizer.resultString.toLowerCase()
-  for (let line of lines[level]) {
-    for (let word of result.split(" ")){
-      if (line.command.includes(word)) {
-        choose(line);
-        break;
-      }    
+  if (isMenuScreen) {
+    if (result.split(" ").includes("start")){
+      isMenuScreen = false
+      startLevel()  
+    }
+  } else {
+    for (let line of lines[level]) {
+      for (let word of result.split(" ")){
+        if (line.command.includes(word)) {
+          choose(line);
+          break;
+        }    
+      }
     }
   }
 }
