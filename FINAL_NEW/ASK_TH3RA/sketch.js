@@ -22,6 +22,8 @@ let speechDelay = 500
 let height = 200
 let width = 350
 let space = 400
+let menu
+let isMenuScreen = false
   
 //voiceSynthesizer.onEnd = onSpeechEnd
 
@@ -32,6 +34,7 @@ let space = 400
 // Load Audio
 function preload() {
     // wetWav = loadSound('assets/sounds/vRec1.wav');
+    menu = loadImage('assets/images/intro.png');
 }
 
 
@@ -274,12 +277,24 @@ function setup() {
   voiceRecognizer.continuous = true;
   voiceRecognizer.onResult = onResult;
   voiceRecognizer.start();
-  textFont(`Tilt Warp`)
-  startLevel()
+
+  voiceSynthesizer.continuous = true;
+  voiceSynthesizer.setPitch(0.8);
+  voiceSynthesizer.setRate(0.8);
+  voiceSynthesizer.setVoice(`Google UK English Male`);
+
+  // textFont(`Tilt Warp`)
+  // textAlign(CENTER);
+  menuScreen()
+  //startLevel()
+ 
 }
 
 function startLevel() {
   createCanvas(windowWidth,windowHeight);
+  voiceSynthesizer.setPitch(0.8);
+  voiceSynthesizer.setRate(0.8);
+  voiceSynthesizer.setVoice(`Google UK English Male`);
 
   // First Row
   let y = 50
@@ -308,23 +323,39 @@ function startLevel() {
       text(line, rectCoords[i].x + 30, rectCoords[i].y + 100 + 40*lineCount);
       lineCount++
     }
+    
+    // JUMPS LINE IN TEXT BOXES
+
     //text(lines[level][random[0]].line, rectCoords[i].x + 30, rectCoords[i].y + 100);
     
     lines[level][random[0]].boxId = rectCoords[i].boxId
     random.shift()
   }
   
-  // Write The Chosen Text So Far (On Screen)
+// Write The Chosen Text So Far (On Screen)
 
-  // let lineNum = 0
-  // for(let line of haiku){
-  //   textSize(30)
-  //   textFont(`Tilt Warp`)
-  //   fill(textColor)
-  //   text(line.text, windowWidth/2-100, 520 + lineNum*50);
-  //   lineNum++
-  // }
+let lineNum = 0
+for(let line of haiku){
+textSize(30)
+// textFont(`Tilt Warp`)
+fill(textColor)
+text(line.text, windowWidth/2-100, 520 + lineNum*50);
+lineNum++
+}
   
+}
+
+function menuScreen() {
+  createCanvas(windowWidth,windowHeight);
+  background(255);
+  isMenuScreen = true
+  voiceSynthesizer.setPitch(0.1);
+  voiceSynthesizer.setRate(0.5);
+  voiceSynthesizer.setVoice(`Google UK English Female`);
+  voiceSynthesizer.speak("Welcome")
+    
+  // Draw the image.
+  image(menu, 200,50, 1200, 675);
 }
 
 //The Final Conversation
@@ -389,15 +420,26 @@ function motherPage(score) {
   
   console.log("TEX ::: ", finalResponse.text)
   
+  voiceSynthesizer.setPitch(0.1);
+  voiceSynthesizer.setRate(0.5);
+  voiceSynthesizer.setVoice(`Google UK English Female`);
   setTimeout(voiceSynthesizer.speak(finalResponse.text), speechDelay)
   
   level = 0
   haiku = []
-  setTimeout(startLevel, 10000)
+  setTimeout(startLevel, 20000)
 }
 
+// Background Color
 function draw() {
-
+  if (!isMenuScreen) {
+    // background (37,58,90,3)
+  } else {
+    if(keyIsPressed){
+      isMenuScreen = false
+      startLevel()
+    }
+  }
 }
 
 // 
@@ -405,12 +447,12 @@ function choose(line){
   lineChosen = true
   //colourBox(line.line, line.boxId)
   
-  // Show Selected Box
+  // SHOW SELECTED BOX (COLOR)
   push()
-  fill('yellow')
+  fill(214, 254, 2)
   rect(rectCoords[line.boxId].x, rectCoords[line.boxId].y, width, height);   
   textSize(30)
-  textFont(`Tilt Warp`)
+  // textFont(`Tilt Warp`)
   fill(textColor)
   
   let lineCount = 0
@@ -436,7 +478,7 @@ function choose(line){
   }
 }
 
-// Voice Recorder Callback
+/// Voice Recorder Callback
 function onResult() {
   lineChosen = false
   if (!voiceRecognizer.resultValue) {
@@ -444,12 +486,26 @@ function onResult() {
   }
   console.log(voiceRecognizer.resultString);
   let result  = voiceRecognizer.resultString.toLowerCase()
-  for (let line of lines[level]) {
-    for (let word of result.split(" ")){
-      if (line.command.includes(word)) {
-        choose(line);
-        break;
-      }    
+  if (isMenuScreen) {
+    if (result.split(" ").includes("start")){
+      // isMenuScreen = false
+      // startLevel()  
     }
+  } else {
+    for (let line of lines[level]) {
+      for (let word of result.split(" ")){
+        if (line.command.includes(word)) {
+          choose(line);
+          break;
+        }    
+      }
+    }
+  }
+}
+
+function mouseClicked(event){
+  if (isMenuScreen){
+    isMenuScreen = false
+    startLevel()
   }
 }
