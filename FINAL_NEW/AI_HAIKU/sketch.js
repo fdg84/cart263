@@ -367,6 +367,11 @@ function motherPage(score) {
 function draw() {
   if (!isMenuScreen) {
     background (37,58,90,3)
+  } else {
+    if(keyIsPressed){
+      isMenuScreen = false
+      startLevel()
+    }
   }
 }
 
@@ -416,8 +421,8 @@ function onResult() {
   let result  = voiceRecognizer.resultString.toLowerCase()
   if (isMenuScreen) {
     if (result.split(" ").includes("start")){
-      isMenuScreen = false
-      startLevel()  
+      // isMenuScreen = false
+      // startLevel()  
     }
   } else {
     for (let line of lines[level]) {
@@ -428,5 +433,12 @@ function onResult() {
         }    
       }
     }
+  }
+}
+
+function mouseClicked(event){
+  if (isMenuScreen){
+    isMenuScreen = false
+    startLevel()
   }
 }
