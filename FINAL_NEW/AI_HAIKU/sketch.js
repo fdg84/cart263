@@ -225,7 +225,7 @@ function startLevel() {
   createCanvas(windowWidth,windowHeight);
   voiceSynthesizer.setPitch(0.8);
   voiceSynthesizer.setRate(0.8);
-  voiceSynthesizer.setVoice(`Google UK English Male`);
+  voiceSynthesizer.setVoice(`Google English Male`);
   
   // First Row of Boxes
   let y = 50
