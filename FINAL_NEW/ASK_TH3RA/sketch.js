@@ -8,11 +8,14 @@ Francis Ouellette
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
 
+// MAKE TEXT COLOR ALPHA 
 let textColor = `black`
 let level = 0
 let rectCoords = []
 let lineChosen = false
 let haiku = []
+
+// CONNECT CARDS TO WORDS
 let random = [3,5,0,2,1,4]
 let levelDelay = 3000
 let speechDelay = 500
@@ -25,12 +28,10 @@ let isMenuScreen = false
 let cards = [[],[],[],[],[],[]]
 
 let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6 
-
-// let l2c1,l1c2,l1c3,l1c4,l1c5,l1c6
-// let l3c1,l1c2,l1c3,l1c4,l1c5,l1c6
-// let l4c1,l1c2,l1c3,l1c4,l1c5,l1c6
-// let l5c1,l1c2,l1c3,l1c4,l1c5,l1c6
-// let l6c1,l1c2,l1c3,l1c4,l1c5,l1c6
+let l2c1,l2c2,l2c3,l2c4,l2c5,l2c6
+let l3c1,l3c2,l3c3,l3c4,l3c5,l3c6
+let l4c1,l4c2,l4c3,l4c4,l4c5,l4c6
+let l5c1,l5c2,l5c3,l5c4,l5c5,l5c6
 
 //voiceSynthesizer.onEnd = onSpeechEnd
 
@@ -40,8 +41,9 @@ let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6
 
 // Load Audio
 function preload() {
-    menu = loadImage('assets/images/intro.png');
+    menu = loadImage('assets/images/TH3RA-intro.jpg');
     
+    // LEVEL 1
     l1c1 = loadImage('assets/images/cards/l1c1.png');
     cards[0].push(l1c1)
     l1c2 = loadImage('assets/images/cards/l1c2.png');
@@ -55,18 +57,61 @@ function preload() {
     l1c6 = loadImage('assets/images/cards/l1c6.png');
     cards[0].push(l1c6)
 
-    // l2c1 = loadImage('assets/images/l2c1.png');
-    // cards[1].push(l2c1)
-    // l2c2 = loadImage('assets/images/l2c2.png');
-    // cards[1].push(l2c2)
-    // l2c3 = loadImage('assets/images/l2c3.png');
-    // cards[1].push(l2c3)
-    // l2c4 = loadImage('assets/images/l2c4.png');
-    // cards[1].push(l2c4)
-    // l2c5 = loadImage('assets/images/l2c5.png');
-    // cards[1].push(l2c5)
-    // l2c6 = loadImage('assets/images/l2c6.png');
-    // cards[1].push(l2c6)
+    // LEVEL 2
+    l2c1 = loadImage('assets/images/cards/l2c1.png');
+    cards[1].push(l2c1)
+    l2c2 = loadImage('assets/images/cards/l2c2.png');
+    cards[1].push(l2c2)
+    l2c3 = loadImage('assets/images/cards/l2c3.png');
+    cards[1].push(l2c3)
+    l2c4 = loadImage('assets/images/cards/l2c4.png');
+    cards[1].push(l2c4)
+    l2c5 = loadImage('assets/images/cards/l2c5.png');
+    cards[1].push(l2c5)
+    l2c6 = loadImage('assets/images/cards/l2c6.png');
+    cards[1].push(l2c6)
+
+    // LEVEL 3
+    l3c1 = loadImage('assets/images/cards/l3c1.png');
+    cards[1].push(l3c1)
+    l3c2 = loadImage('assets/images/cards/l3c2.png');
+    cards[1].push(l3c2)
+    l3c3 = loadImage('assets/images/cards/l3c3.png');
+    cards[1].push(l3c3)
+    l3c4 = loadImage('assets/images/cards/l3c4.png');
+    cards[1].push(l3c4)
+    l3c5 = loadImage('assets/images/cards/l3c5.png');
+    cards[1].push(l3c5)
+    l3c6 = loadImage('assets/images/cards/l3c6.png');
+    cards[1].push(l3c6)
+
+            // LEVEL 4
+    l4c1 = loadImage('assets/images/cards/l4c1.png');
+    cards[1].push(l4c1)
+    l4c2 = loadImage('assets/images/cards/l4c2.png');
+    cards[1].push(l4c2)
+    l4c3 = loadImage('assets/images/cards/l4c3.png');
+    cards[1].push(l4c3)
+    l4c4 = loadImage('assets/images/cards/l4c4.png');
+    cards[1].push(l4c4)
+    l4c5 = loadImage('assets/images/cards/l4c5.png');
+    cards[1].push(l4c5)
+    l4c6 = loadImage('assets/images/cards/l4c6.png');
+    cards[1].push(l4c6)
+
+    // LEVEL 5
+    l5c1 = loadImage('assets/images/cards/l5c1.png');
+    cards[1].push(l5c1)
+    l5c2 = loadImage('assets/images/cards/l5c2.png');
+    cards[1].push(l5c2)
+    l5c3 = loadImage('assets/images/cards/l5c3.png');
+    cards[1].push(l5c3)
+    l5c4 = loadImage('assets/images/cards/l5c4.png');
+    cards[1].push(l5c4)
+    l5c5 = loadImage('assets/images/cards/l5c5.png');
+    cards[1].push(l5c5)
+    l5c6 = loadImage('assets/images/cards/l5c6.png');
+    cards[1].push(l5c6)
 }
 
 
