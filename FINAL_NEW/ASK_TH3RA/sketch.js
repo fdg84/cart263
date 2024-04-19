@@ -24,7 +24,7 @@ let menu
 let isMenuScreen = false
 let cards = [[],[],[],[],[],[]]
 
-let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6
+let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6 
 
 // let l2c1,l1c2,l1c3,l1c4,l1c5,l1c6
 // let l3c1,l1c2,l1c3,l1c4,l1c5,l1c6
@@ -351,7 +351,7 @@ function startLevel() {
   // Add Text
   for (let i = 0; i < 6; i++){
     textSize(30)
-    textFont(`Tilt Warp`)
+    // textFont(`Tilt Warp`)
     fill(textColor)
     
     let lineCount = 0
@@ -451,7 +451,7 @@ function motherPage(score) {
 
   for(let line of finalResponse.line){
     textSize(30)
-    textFont(`Tilt Warp`)
+    // textFont(`Tilt Warp`)
     fill("black")
     text(line, windowWidth/2-100, 320 + lineNum*50);
     lineNum++
@@ -486,12 +486,12 @@ function choose(line){
   lineChosen = true
   //colourBox(line.line, line.boxId)
   
-  // SHOW SELECTED BOX (COLOR)
+  // SHOW SELECTED BOX (COLOR) + TEXT RESPONSE (MAKE INVISIBLE BEFORE CHOSEN LINE)
   push()
   fill(214, 254, 2)
   rect(rectCoords[line.boxId].x, rectCoords[line.boxId].y, width, height);   
-  textSize(30)
   // textFont(`Tilt Warp`)
+  textSize(30)
   fill(textColor)
   
   let lineCount = 0
@@ -505,8 +505,10 @@ function choose(line){
   
   // Add Line To Haiku
   haiku.push(line)
-  // Randomize The Lines
-  random = [4,0,2,1,3,5]
+
+  // Randomize The Lines (EITHER CHANGE CARDS OR TITLES)
+  // random = [4,0,2,1,3,5]
+
   // Increase The Level
   level++
   lineChosen = false
@@ -551,3 +553,5 @@ function mouseClicked(event){
     startLevel()
   }
 }
+
+// INSERT FRAME INTO A FRAME (TO CENTER ENTIRE PAGE)
