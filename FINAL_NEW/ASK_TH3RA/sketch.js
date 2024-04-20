@@ -41,7 +41,7 @@ let l5c1,l5c2,l5c3,l5c4,l5c5,l5c6
 
 // Load Audio
 function preload() {
-    menu = loadImage('assets/images/TH3RA-intro.jpg');
+    menu = loadImage('assets/images/TH3RA-intro.png');
     
     // LEVEL 1
     l1c1 = loadImage('assets/images/cards/l1c1.png');
@@ -123,21 +123,18 @@ const lines = [
       "command": ["existential", "ennui", "who", "me"],
       "line": ["Existential Ennui,", "Who Me"],  
       "text": "Existential Ennui Who Me",
-      //"subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 1
     },
     {
       "command": ["reality", "tv", "intriguing"],
       "line": ["Reality TV?", "Intriguing"],
       "text": "Reality TV? Intriguing ", 
-      //"subtext": "You know, a dimension dedicated to manufactured conflict might provide some fascinating sociological data. Perhaps I could offer a guest appearance as the 'Wise Interdimensional Therapist.'",
       "score": 2 
     },
     {
       "command": ["spice", "things", "up"],
       "line": ["Spice", "Things Up?"],  
       "text": "Spice Things Up?",
-      //"subtext": "You know, a dimension dedicated to manufactured conflict might provide some fascinating sociological data. Perhaps I could offer a guest appearance as the 'Wise Interdimensional Therapist.'",
       "score": 3 
     },
     {
