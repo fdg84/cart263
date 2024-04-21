@@ -16,7 +16,8 @@ let rectCoords = []
 let lineChosen = false
 let haiku = []
 
-let levelDelay = 9000 // delay before changing levels
+// Delay Before Changing Levels
+let levelDelay = 9000 
 let speechDelay = 500
 
 let height = 300
@@ -27,7 +28,7 @@ let isMenuScreen = false
 let isTheraScreen = false
 let isHeavenScreen = false
 
-// origin variables for level layout
+// Origin Variables for Level Layout
 let topLeftX, topLeftY 
 
 function preload() {
@@ -222,13 +223,15 @@ function setup() {
 function onSpeechEnd(e) {
   if(!isMenuScreen){
     if(level < 5){
-      // if game is still going start next level
+
+      // If Game is Still Going - Start Next Level
       setTimeout(startLevel, 1000)
       isHeavenScreen = false
     }else if (isTheraScreen){
       setTimeout(heavenScreen, 1000)
     }else{
-      // if level 5 complete move to thera screen
+
+      // If Level 5 Complete - Move to Thera Screen
       setTimeout(theraScreen, 1000)
     }
   }
@@ -292,6 +295,7 @@ function menuScreen() {
 function startLevel() {
   createCanvas(windowWidth,windowHeight);
   background(bgColor)
+
   // Set Coordinates for Level Layout
   topLeftX = windowWidth/100
   topLeftY = windowHeight/35
@@ -304,7 +308,6 @@ function startLevel() {
   lineChosen = false
   
   // Question
-  
   fill(textColor)
   textAlign(CENTER)
 
@@ -354,7 +357,7 @@ function theraScreen() {
   let finalResponse = {}
   isTheraScreen = true
   
-  //calculate the score
+  // Calculate Score
   let score = 0
   for(let line of haiku){
     score += line.score
@@ -397,7 +400,7 @@ function heavenScreen() {
  
   voiceSynthesizer.speak("See you in heaven cosmic traveler. Good luck on your journey!")
 
-  // Draw the heaven image
+  // Draw Heaven Image
   image(heaven, (windowWidth/2 - windowHeight/2) ,0, windowHeight, windowHeight);
 
 }
@@ -429,13 +432,13 @@ function choose(line){
     lineCount++
   }
 
-  // Respond to chosen line
+  // Respond to Chosen Line
   setTimeout(() => voiceSynthesizer.speak(line.text), speechDelay)
   
-  // Add chosen line to user responses for scoring
+  // Add Chosen Line to User Responses for Scoring
   haiku.push(line)
 
-  // Increase The Level
+  // Increase Level
   level++
 }
 
@@ -459,7 +462,7 @@ function onResult() {
   }
 }
 
-// start the game after mouse click
+// Start Game After Mouse Click
 function mouseClicked(event){
   if (isMenuScreen){
     isMenuScreen = false
