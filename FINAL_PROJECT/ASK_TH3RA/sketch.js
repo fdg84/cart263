@@ -14,6 +14,7 @@ let rectCoords = []
 let lineChosen = false
 let haiku = []
 
+// let random = [3,5,0,2,1,4]
 let levelDelay = 3000
 let speechDelay = 500
 
@@ -24,13 +25,91 @@ let menu
 let isMenuScreen = false
 let cards = [[],[],[],[],[],[]]
 
+// let l1c1,l1c2,l1c3,l1c4,l1c5,l1c6 
+// let l2c1,l2c2,l2c3,l2c4,l2c5,l2c6
+// let l3c1,l3c2,l3c3,l3c4,l3c5,l3c6
+// let l4c1,l4c2,l4c3,l4c4,l4c5,l4c6
+// let l5c1,l5c2,l5c3,l5c4,l5c5,l5c6
+
 //voiceSynthesizer.onEnd = onSpeechEnd
 
 // function onSpeechEnd () {
+//   console.log("TEST END")
 // }
 
+// Load Audio
 function preload() {
     menu = loadImage('assets/images/eyeball.jpg');
+    
+    // // LEVEL 1
+    // l1c1 = loadImage('assets/images/cards/l1c1.png');
+    // cards[0].push(l1c1)
+    // l1c2 = loadImage('assets/images/cards/l1c2.png');
+    // cards[0].push(l1c2)
+    // l1c3 = loadImage('assets/images/cards/l1c3.png');
+    // cards[0].push(l1c3)
+    // l1c4 = loadImage('assets/images/cards/l1c4.png');
+    // cards[0].push(l1c4)
+    // l1c5 = loadImage('assets/images/cards/l1c5.png');
+    // cards[0].push(l1c5)
+    // l1c6 = loadImage('assets/images/cards/l1c6.png');
+    // cards[0].push(l1c6)
+
+    // // LEVEL 2
+    // l2c1 = loadImage('assets/images/cards/l2c1.png');
+    // cards[1].push(l2c1)
+    // l2c2 = loadImage('assets/images/cards/l2c2.png');
+    // cards[1].push(l2c2)
+    // l2c3 = loadImage('assets/images/cards/l2c3.png');
+    // cards[1].push(l2c3)
+    // l2c4 = loadImage('assets/images/cards/l2c4.png');
+    // cards[1].push(l2c4)
+    // l2c5 = loadImage('assets/images/cards/l2c5.png');
+    // cards[1].push(l2c5)
+    // l2c6 = loadImage('assets/images/cards/l2c6.png');
+    // cards[1].push(l2c6)
+
+    // // LEVEL 3
+    // l3c1 = loadImage('assets/images/cards/l3c1.png');
+    // cards[1].push(l3c1)
+    // l3c2 = loadImage('assets/images/cards/l3c2.png');
+    // cards[1].push(l3c2)
+    // l3c3 = loadImage('assets/images/cards/l3c3.png');
+    // cards[1].push(l3c3)
+    // l3c4 = loadImage('assets/images/cards/l3c4.png');
+    // cards[1].push(l3c4)
+    // l3c5 = loadImage('assets/images/cards/l3c5.png');
+    // cards[1].push(l3c5)
+    // l3c6 = loadImage('assets/images/cards/l3c6.png');
+    // cards[1].push(l3c6)
+
+    //         // LEVEL 4
+    // l4c1 = loadImage('assets/images/cards/l4c1.png');
+    // cards[1].push(l4c1)
+    // l4c2 = loadImage('assets/images/cards/l4c2.png');
+    // cards[1].push(l4c2)
+    // l4c3 = loadImage('assets/images/cards/l4c3.png');
+    // cards[1].push(l4c3)
+    // l4c4 = loadImage('assets/images/cards/l4c4.png');
+    // cards[1].push(l4c4)
+    // l4c5 = loadImage('assets/images/cards/l4c5.png');
+    // cards[1].push(l4c5)
+    // l4c6 = loadImage('assets/images/cards/l4c6.png');
+    // cards[1].push(l4c6)
+
+    // // LEVEL 5
+    // l5c1 = loadImage('assets/images/cards/l5c1.png');
+    // cards[1].push(l5c1)
+    // l5c2 = loadImage('assets/images/cards/l5c2.png');
+    // cards[1].push(l5c2)
+    // l5c3 = loadImage('assets/images/cards/l5c3.png');
+    // cards[1].push(l5c3)
+    // l5c4 = loadImage('assets/images/cards/l5c4.png');
+    // cards[1].push(l5c4)
+    // l5c5 = loadImage('assets/images/cards/l5c5.png');
+    // cards[1].push(l5c5)
+    // l5c6 = loadImage('assets/images/cards/l5c6.png');
+    // cards[1].push(l5c6)
 }
 
 const questions = [
@@ -48,121 +127,226 @@ const lines = [
     {
       "command": ["existential", "ennui", "who", "me"],
       "line": ["Existential Ennui,", "Who Me"],  
-      "text": "Fascinating! Does this existential unease come with a complimentary existential teacup?",
+      "text": "Existential Ennui Who Me",
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 1
     },
     {
       "command": ["reality", "tv", "intriguing"],
       "line": ["Reality TV?", "Intriguing"],
-      "text": "True. A controlled chaos experiment could become the next galactic reality show sensation!",
+      "text": "Reality TV? Intriguing ",
       "subtext": "You know, a dimension dedicated to manufactured conflict might provide some fascinating sociological data. Perhaps I could offer a guest appearance as the 'Wise Interdimensional Therapist.'", 
       "score": 2 
     },
     {
       "command": ["spice", "things", "up"],
       "line": ["Spice", "Things Up?"],  
-      "text": "A wise philosophy, my friend! The universe is a cosmic joke factory, if you know where to look.",
+      "text": "Spice Things Up?",
       "subtext": "The key to avoiding cosmic boredom, my dear therapist, is to find amusement in the unexpected. From sentient sentient planets to civilizations built entirely on cheese, the universe offers endless comedic opportunities.",
       "score": 3 
     }
+    // {
+    //   "command": ["thrill", "unknown"],
+    //   "line": ["The Thrill", "of the Unknown"],  
+    //   "text": "The Thrill of the Unknown",
+    //   "subtext": "Relaxation is for lesser beings! I thrive on constant stimulation and intellectual challenges. Besides, a stagnant being is a decaying being, wouldn't you agree?",  
+    //   "score": 4 
+    // },
+    // {
+    //   "command": ["perhaps", "you're", "your", "right"],
+    //   "line": ["Perhaps", "You're Right"],  
+    //   "text": "Perhaps You're Right",  
+    //   "subtext": "Relaxation is for lesser beings! I thrive on constant stimulation and intellectual challenges. Besides, a stagnant being is a decaying being, wouldn't you agree?",  
+    //   "score": 5 
+    // },
+    // {
+    //   "command": ["who", "needs", "relaxation"],
+    //   "line": ["Who Needs", "Relaxation?"],  
+    //   "text": "Who Needs Relaxation?",  
+    //   "subtext": "Relaxation is for lesser beings! I thrive on constant stimulation and intellectual challenges. Besides, a stagnant being is a decaying being, wouldn't you agree?",  
+    //   "score": 6  
+    // }
   ],
   // Level 2
   [
     {
       "command": ["deepest", "thoughts"],
       "line": ["Deepest", "Thoughts?"],  
-      "text": "A weighty contemplation, indeed. But fear not! Even in the face of oblivion, there's room for a touch of whimsy.",  
+      "text": "Deepest Thoughts?",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 1
     },
     {
       "command": ["transformative", "experience"],
       "line": ["Transformative", "Experience?"],  
-      "text": "Thrilling! The human psyche is a labyrinth of contradictions, a kaleidoscope of emotions and anxieties.",  
+      "text": "Transformative Experience?",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 2
     },
     {
       "command": ["backwards", "planet"],
       "line": ["Backwards", "Planet?"],  
-      "text": "Ah, the power of headwear in fostering a sense of intergalactic community!",  
+      "text": "Backwards Planet?",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 3  
     }
-   ],
+        // {
+    //   "command": ["complete", "stranger"],
+    //   "line": ["Complete", "Stranger?"],  
+    //   "text": "Complete Stranger?",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 4  
+    // },
+     // {
+    //   "command": ["anxieties", "you", "say"],
+    //   "line": ["Anxieties", "You Say?"],  
+    //   "text": "Anxieties, You Say?",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 2 
+    // },
+    // {
+    //   "command": ["secrets"],
+    //   "line": ["Secrets?"],  
+    //   "text": "Secrets?",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 6  
+    // }
+  ],
     // Level 3
     [
       {
         "command": ["parallel", "parking", "black", "hole"],
         "line": ["Parallel Parking", "a Black Hole?"],  
-        "text": "Now that's a cosmic traffic jam I wouldn't want to miss!",  
+        "text": "Parallel Parking a Black Hole?",  
         "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
         "score": 1 
       },
       {
         "command": ["cosmic", "patience"],
         "line": ["Cosmic", "Patience?"],  
-        "text": "A refreshingly zen perspective!",  
+        "text": "Cosmic Patience?",  
         "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
         "score": 2  
       },
       {
         "command": ["highway", "merging"],
         "line": ["Highway", "Merging?"],  
-        "text": "Fascinating! A microcosm of galactic road rage, played out on a single-planet highway.",  
+        "text": "Highway Merging?",  
         "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
         "score": 3  
       }
+      // {
+      //   "command": ["rush", "hour"],
+      //   "line": ["Rush", "Hour?"],  
+      //   "text": "Rush Hour?",  
+      //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+      //   "score": 3  
+      // },
+      // {
+      //   "command": ["traffic", "laws"],
+      //   "line": ["Traffic", "Laws?"],  
+      //   "text": "Traffic Laws?",  
+      //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+      //   "score": 1
+      // },
+      // {
+      //   "command": ["true", "test"],
+      //   "line": ["True", "Test?"],  
+      //   "text": "True Test?",  
+      //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+      //   "score": 5  
+      // }
     ],
       // Level 4
   [
     {
       "command": ["creative", "solutions"],
       "line": ["Creative", "Solutions"],  
-      "text": "Now this is a therapy session I can get behind!",  
+      "text": "Creative Solutions",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 1 
     },
     {
       "command": ["beyond", "currency"],
       "line": ["Beyond", "Currency"],  
-      "text": "Forget currency, the true galactic treasure is the wisdom gleaned from delving into the cosmic abyss of one's being.",  
+      "text": "Beyond Currency",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 2  
     },
     {
       "command": ["interdimensional", "debt", "collectors?"],
       "line": ["Interdimensional", "Debt Collectors?"],  
-      "text": "Now that's a cosmic pickle of epic proportions!",  
+      "text": "Interdimensional Debt Collectors?",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 3  
     }
-   ],
+    // {
+    //   "command": ["multiversant", "therapy", "bill"],
+    //   "line": ["Multiversant", "Therapy Bill?"],  
+    //   "text": "multiversant Therapy Bill?",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 1
+    // },
+    // {
+    //   "command": ["cosmic", "dust"],
+    //   "line": ["Cosmic", "Dust?"],  
+    //   "text": "Cosmic Dust?",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 2 
+    // },
+    // {
+    //   "command": ["universal", "barter", "system"],
+    //   "line": ["Universal", "Barter System"],  
+    //   "text": "Universal Barter System",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 3  
+    // },
+  ],
   // Level 5
   [
     {
       "command": ["impermanence", "versus", "landfills"],
       "line": ["Impermanence", "vs. Landfills"],  
-      "text": "While landfills may seem like cosmic eyesores, they hold the potential for rebirth.",  
+      "text": "Impermanence vs. Landfills",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 1
     },
     {
       "command": ["embrace", "cycle"],
       "line": ["Embrace" ,"the Cycle"],  
-      "text": "The universe itself is a disco ball, constantly swirling and evolving.",  
+      "text": "Embrace the Cycle",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 2 
     },
     {
       "command": ["focus", "present"],
       "line": ["Focus", "on the Present"],  
-      "text": "While the relentless march of time might seem daunting, it also imbues every experience with a precious, fleeting quality.",  
+      "text": "Focus on the Present",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 3
     }
-   ]
+    // {
+    //   "command": ["never", "ending", "to", "do", "list"],
+    //   "line": ["Never-Ending","To-Do List"],  
+    //   "text": "Never-Ending To-Do List",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 2 
+    // },
+    // {
+    //   "command": ["cosmic", "perspective"],
+    //   "line": ["Cosmic" ,"Perspective"],  
+    //   "text": "Cosmic Perspective",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 5 
+    // },
+    // {
+    //   "command": ["garbage", "haiku"],
+    //   "line": ["Garbage", "Haiku"],  
+    //   "text": "garbage Haiku",  
+    //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+    //   "score": 6
+    // }
+  ]
 ]
 
 // TH3RA's Possible Responses
@@ -210,7 +394,7 @@ function setup() {
   voiceSynthesizer.setRate(0.8);
   voiceSynthesizer.setVoice(`Google UK English Male`);
 
-  // Start Game on Menu Screen
+  //start the game on the menu screen
   menuScreen()
   
 }
@@ -221,18 +405,18 @@ function startLevel() {
   console.log("START LEVEL", level, questions[level])
   createCanvas(windowWidth,windowHeight);
   
-  // Set Coordinates for Level Layout
-  topLeftX = windowWidth/100
-  topLeftY = windowHeight/35
+  //set coordinate for level layout
+  topLeftX = windowWidth/14
+  topLeftY = windowHeight/12
   
   voiceSynthesizer.setPitch(0.8);
   voiceSynthesizer.setRate(0.8);
   voiceSynthesizer.setVoice(`Google UK English Male`);
   
-  // Reset That No Line Has Been Chosen
+  //reset that no line has been chosen
   lineChosen = false
   
-  // Question
+  //question
   
   fill(textColor)
   textAlign(CENTER)
@@ -259,15 +443,17 @@ function startLevel() {
   // Add Text
   for (let i = 0; i < 3; i++){
     textSize(30)
+    // textFont(`Tilt Warp`)
     fill(textColor)
     
     let lineCount = 0
+    //console.log('lev', level, 'random[0]', random[0], 'lines:', lines[level][random[0]])
     for (let line of lines[level][i].line){
       textAlign(LEFT)
       text(line, rectCoords[i].x + 30, rectCoords[i].y + 75 + 40*lineCount);
       lineCount++
     }
-    // Write Subtext 
+    //subtext write
     textSize(15)
     textWrap(WORD)
     text(lines[level][i].subtext, rectCoords[i].x + 30, rectCoords[i].y + 145, 300);
@@ -281,21 +467,21 @@ function menuScreen() {
   createCanvas(windowWidth,windowHeight);
   background(255);
   isMenuScreen = true
-  voiceSynthesizer.setPitch(0.7);
-  voiceSynthesizer.setRate(1.3);
+  voiceSynthesizer.setPitch(0.1);
+  voiceSynthesizer.setRate(0.5);
   voiceSynthesizer.setVoice(`Google UK English Female`);
-  voiceSynthesizer.speak("Welcome dear angel. Feeling lost in the cosmos? Overwhelmed by existential dread? Fear not, here at Ask Thera, we specialize in untangling the knots of your interdimensional psyche.")
+  voiceSynthesizer.speak("Welcome")
     
-  // Draw The Image
+  // Draw the image.
   image(menu, 0,0, windowHeight, windowHeight);
   
   console.log("WINDOW: ", windowWidth, windowHeight)
   
-  // Set Layout Coordinates for Menu Screen
+  // set layout coordinatesfor menu screen
   let top = windowHeight/5
   let textCenter = windowHeight + (windowWidth - windowHeight)/2
   
-  fill('red')
+  fill(textColor)
   textWrap(WORD)
   textSize(30)
   textStyle(BOLD)
@@ -309,7 +495,7 @@ function menuScreen() {
   text("is a poetic AI experience, in which the player, PATIENT #71530, uses their voice to respond to the therapist's questions, reveal TH3RA's cosmic diagnosis", textCenter - 185, top + 50, 400)
 
   textAlign(LEFT)
-  fill('red')
+  fill(textColor)
   textSize(30)
   textStyle(BOLD)
   text("Rules", textCenter - 25, top + 225)
@@ -322,7 +508,7 @@ function menuScreen() {
   text("Answer the Questions to gain points & speak to your AI guru. Use your Voice to select 1 response per level(5 total)", textCenter -185, top + 275, 400)
 
   textAlign(LEFT)
-  fill('red')
+  fill(textColor)
   textSize(30)
   textStyle(BOLD)
   text("To Play", textCenter-35, top + 430)
@@ -349,6 +535,10 @@ function haikuPage() {
   let haikuText = ""
   
   for(let line of haiku){
+  //  textSize(30)
+  //  textFont(`Tilt Warp`)
+  //  fill("black")
+  //  text(line.text, windowWidth/2-100, 320 + lineNum*50);
     score += line.score
     lineNum++
     haikuText += ", " + line.text
@@ -356,7 +546,7 @@ function haikuPage() {
   
   console.log("HAIKU ::: ", haikuText)
   
-  setTimeout(() => theraPage(score) , 100)
+  setTimeout(() => motherPage(score) , 100)
   
   // setTimeout(() => {
   //   //voiceSynthesizer.speak(haikuText)
@@ -367,16 +557,20 @@ function haikuPage() {
   // Score Text Is Here - KEEP HIDDEN  
 
   // textSize(30)
+  // textFont(`Tilt Warp`)
   // fill(textColor)
   // text("score: " + score, windowWidth/2-100, 320 + (lineNum)*50);
 
 }
 
-function theraPage(score) {
+function motherPage(score) {
   createCanvas(windowWidth,windowHeight);
   console.log("SCORE: ", score)
   let lineNum = 0
+  //let responseText = ""
   let finalResponse = {}
+  //let finalScore = Math.abs(score)
+  // console.log("FINAL SCORE: ", finalScore)
   for(let response of responses){
     if (score < response.score){
       finalResponse = response
@@ -392,6 +586,7 @@ function theraPage(score) {
     
   for(let line of finalResponse.line){
     textSize(30)
+    // textFont(`Tilt Warp`)
     fill("black")
     textStyle(NORMAL)
     text(line, windowWidth/3-100, 320 + lineNum*50);
@@ -401,7 +596,7 @@ function theraPage(score) {
   console.log("TEX ::: ", finalResponse.text)
   
   voiceSynthesizer.setPitch(0.7);
-  voiceSynthesizer.setRate(1.3);
+  voiceSynthesizer.setRate(1.5);
   voiceSynthesizer.setVoice(`Google UK English Female`);
   setTimeout(voiceSynthesizer.speak(finalResponse.text), speechDelay)
   
@@ -413,6 +608,7 @@ function theraPage(score) {
 // Background Color
 function draw() {
   if (!isMenuScreen) {
+    // background (37,58,90,3)
   } else {
     if(keyIsPressed){
       isMenuScreen = false
@@ -424,11 +620,13 @@ function draw() {
 // 
 function choose(line){
   lineChosen = true
+  //colourBox(line.line, line.boxId)
   
-  // Show Selected Box (Color)
+  // SHOW SELECTED BOX (COLOR)
   push()
   fill(214, 254, 2)
   rect(rectCoords[line.boxId].x, rectCoords[line.boxId].y, width, height);   
+  // textFont(`Tilt Warp`)
   textSize(30)
   fill(textColor)
   
@@ -444,6 +642,9 @@ function choose(line){
   // Add Line To Haiku
   haiku.push(line)
 
+  // Randomize The Lines
+  // random = [4,0,2,1,3,5]
+
   // Increase The Level
   level++
   console.log("NEW LEVEL: ", level)
@@ -454,7 +655,7 @@ function choose(line){
   }
 }
 
-// Voice Recorder Callback
+/// Voice Recorder Callback
 function onResult() {
   if (!voiceRecognizer.resultValue) {
     return;
