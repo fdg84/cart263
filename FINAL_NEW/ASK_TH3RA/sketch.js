@@ -8,14 +8,12 @@ Francis Ouellette
 const voiceSynthesizer = new p5.Speech();
 const voiceRecognizer = new p5.SpeechRec();
 
-// MAKE TEXT COLOR ALPHA 
 let textColor = `black`
 let level = 0
 let rectCoords = []
 let lineChosen = false
 let haiku = []
 
-// CONNECT CARDS TO WORDS
 // let random = [3,5,0,2,1,4]
 let levelDelay = 3000
 let speechDelay = 500
@@ -116,10 +114,10 @@ function preload() {
 
 const questions = [
   "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old cosmos? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
-  "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old cosmos? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
-  "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old cosmos? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
-  "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old cosmos? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
-  "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old cosmos? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension."
+  "Alright, cosmic wanderer, tell me all about your deepest thoughts and anxieties. Spilling your secrets to a complete stranger, a therapist from a backwards little planet like this, is sure to be a truly transformative experience.",
+  "You navigate the cosmos with ease, but can you handle the mundane traffic laws here in your dimension? Perhaps parallel parking a black hole is a breeze for a cosmic entity such as yourself, but merging onto a highway during rush hour... that's a true test of cosmic patience.",
+  "Connection to all things, you say? Fascinating. Then tell me, o wise traveler, how exactly do you plan on paying your interdimensional therapy bill? It seems like accepting various forms of cosmic dust might be a bit inconvenient.",
+  "Impermanence is beautiful, you say? Well, that's a lovely sentiment for a being who exists outside of time altogether. Here on our little planet, impermanence mostly means overflowing landfills and a never-ending to-do list."
 ]
 
 const lines = [
@@ -146,7 +144,7 @@ const lines = [
       "text": "Spice Things Up?",
       "subtext": "The key to avoiding cosmic boredom, my dear therapist, is to find amusement in the unexpected. From sentient sentient planets to civilizations built entirely on cheese, the universe offers endless comedic opportunities.",
       "score": 3 
-    },
+    }
     // {
     //   "command": ["thrill", "unknown"],
     //   "line": ["The Thrill", "of the Unknown"],  
@@ -179,32 +177,32 @@ const lines = [
       "score": 1
     },
     {
-      "command": ["anxieties", "you", "say"],
-      "line": ["Anxieties", "You Say?"],  
-      "text": "Anxieties, You Say?",  
-      "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      "score": 2 
-    },
-    {
       "command": ["transformative", "experience"],
       "line": ["Transformative", "Experience?"],  
       "text": "Transformative Experience?",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      "score": 3  
+      "score": 2
     },
-    // {
+    {
+      "command": ["backwards", "planet"],
+      "line": ["Backwards", "Planet?"],  
+      "text": "Backwards Planet?",  
+      "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+      "score": 3  
+    }
+        // {
     //   "command": ["complete", "stranger"],
     //   "line": ["Complete", "Stranger?"],  
     //   "text": "Complete Stranger?",  
     //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
     //   "score": 4  
     // },
-    // {
-    //   "command": ["backwards", "planet"],
-    //   "line": ["Backwards", "Planet?"],  
-    //   "text": "Backwards Planet?",  
+     // {
+    //   "command": ["anxieties", "you", "say"],
+    //   "line": ["Anxieties", "You Say?"],  
+    //   "text": "Anxieties, You Say?",  
     //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-    //   "score": 5  
+    //   "score": 2 
     // },
     // {
     //   "command": ["secrets"],
@@ -217,32 +215,39 @@ const lines = [
     // Level 3
     [
       {
-        "command": ["traffic", "laws"],
-        "line": ["Traffic", "Laws?"],  
-        "text": "Traffic Laws?",  
-        "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-        "score": 1
-      },
-      {
         "command": ["parallel", "parking", "black", "hole"],
         "line": ["Parallel Parking", "a Black Hole?"],  
         "text": "Parallel Parking a Black Hole?",  
         "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-        "score": 2 
+        "score": 1 
       },
       {
-        "command": ["rush", "hour"],
-        "line": ["Rush", "Hour?"],  
-        "text": "Rush Hour?",  
+        "command": ["cosmic", "patience"],
+        "line": ["Cosmic", "Patience?"],  
+        "text": "Cosmic Patience?",  
+        "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+        "score": 2  
+      },
+      {
+        "command": ["highway", "merging"],
+        "line": ["Highway", "Merging?"],  
+        "text": "Highway Merging?",  
         "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
         "score": 3  
-      },
+      }
       // {
-      //   "command": ["cosmic", "patience"],
-      //   "line": ["Cosmic", "Patience?"],  
-      //   "text": "Cosmic Patience?",  
+      //   "command": ["rush", "hour"],
+      //   "line": ["Rush", "Hour?"],  
+      //   "text": "Rush Hour?",  
       //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      //   "score": 4  
+      //   "score": 3  
+      // },
+      // {
+      //   "command": ["traffic", "laws"],
+      //   "line": ["Traffic", "Laws?"],  
+      //   "text": "Traffic Laws?",  
+      //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+      //   "score": 1
       // },
       // {
       //   "command": ["true", "test"],
@@ -250,59 +255,52 @@ const lines = [
       //   "text": "True Test?",  
       //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       //   "score": 5  
-      // },
-      // {
-      //   "command": ["highway", "merging"],
-      //   "line": ["Highway", "Merging?"],  
-      //   "text": "Highway Merging?",  
-      //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      //   "score": 6  
       // }
     ],
       // Level 4
   [
     {
-      "command": ["multiversant", "therapy", "bill"],
-      "line": ["Multiversant", "Therapy Bill?"],  
-      "text": "multiversant Therapy Bill?",  
+      "command": ["creative", "solutions"],
+      "line": ["Creative", "Solutions"],  
+      "text": "Creative Solutions",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      "score": 1
+      "score": 1 
     },
     {
-      "command": ["cosmic", "dust"],
-      "line": ["Cosmic", "Dust?"],  
-      "text": "Cosmic Dust?",  
+      "command": ["beyond", "currency"],
+      "line": ["Beyond", "Currency"],  
+      "text": "Beyond Currency",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      "score": 2 
+      "score": 2  
     },
     {
-      "command": ["universal", "barter", "system"],
-      "line": ["Universal", "Barter System"],  
-      "text": "Universal Barter System",  
+      "command": ["interdimensional", "debt", "collectors?"],
+      "line": ["Interdimensional", "Debt Collectors?"],  
+      "text": "Interdimensional Debt Collectors?",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
       "score": 3  
-    },
+    }
     // {
-    //   "command": ["creative", "solutions"],
-    //   "line": ["Creative", "Solutions"],  
-    //   "text": "Creative Solutions",  
+    //   "command": ["multiversant", "therapy", "bill"],
+    //   "line": ["Multiversant", "Therapy Bill?"],  
+    //   "text": "multiversant Therapy Bill?",  
     //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-    //   "score": 4  
+    //   "score": 1
     // },
     // {
-    //   "command": ["beyond", "currency"],
-    //   "line": ["Beyond", "Currency"],  
-    //   "text": "Beyond Currency",  
+    //   "command": ["cosmic", "dust"],
+    //   "line": ["Cosmic", "Dust?"],  
+    //   "text": "Cosmic Dust?",  
     //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-    //   "score": 5  
+    //   "score": 2 
     // },
     // {
-    //   "command": ["interdimensional", "debt", "collectors?"],
-    //   "line": ["Interdimensional", "Debt Collectors?"],  
-    //   "text": "Interdimensional Debt Collectors?",  
+    //   "command": ["universal", "barter", "system"],
+    //   "line": ["Universal", "Barter System"],  
+    //   "text": "Universal Barter System",  
     //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-    //   "score": 6  
-    // }
+    //   "score": 3  
+    // },
   ],
   // Level 5
   [
@@ -314,25 +312,25 @@ const lines = [
       "score": 1
     },
     {
-      "command": ["never", "ending", "to", "do", "list"],
-      "line": ["Never-Ending","To-Do List"],  
-      "text": "Never-Ending To-Do List",  
-      "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      "score": 2 
-    },
-    {
       "command": ["embrace", "cycle"],
       "line": ["Embrace" ,"the Cycle"],  
       "text": "Embrace the Cycle",  
       "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-      "score": 3  
+      "score": 2 
     },
+    {
+      "command": ["focus", "present"],
+      "line": ["Focus", "on the Present"],  
+      "text": "Focus on the Present",  
+      "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
+      "score": 3
+    }
     // {
-    //   "command": ["focus", "present"],
-    //   "line": ["Focus", "on the Present"],  
-    //   "text": "Focus on the Present",  
+    //   "command": ["never", "ending", "to", "do", "list"],
+    //   "line": ["Never-Ending","To-Do List"],  
+    //   "text": "Never-Ending To-Do List",  
     //   "subtext": "Boredom? Never! The cosmos is an infinite tapestry, offering endless possibilities for exploration. Besides, who wouldn't be entertained by the drama of a black hole collapsing in on itself?",
-    //   "score": 4
+    //   "score": 2 
     // },
     // {
     //   "command": ["cosmic", "perspective"],
@@ -361,27 +359,27 @@ let responses = [
   {
     "text": "Fear of impermanence? Nonsense! It's the fuel that propels the cosmic engine of chaos! Embrace the impermanence, traveler, and use it to propel yourself towards... well, who knows where! That's the beauty of it!",
     "line": ["Fear of impermanence? Nonsense!", "It's the fuel that propels the cosmic engine of chaos!", "Embrace the impermanence, traveler, and use it to propel", "yourself towards... well, who knows where", "That's the beauty of it!"],
-    "score": 10
+    "score": 7
   },
   {
     "text": "Finding a balance is overrated. Embrace the exhilarating imbalance of the cosmos! Tip the scales towards awe one day, then wallow in insignificance the next. It's all part of the cosmic rollercoaster ride!",
     "line": ["Finding a balance is overrated.", "Embrace the exhilarating imbalance of the cosmos!", "Tip the scales towards awe one day,", "then wallow in insignificance the next.", "It's all part of the cosmic rollercoaster ride!"],
-    "score": 15
+    "score": 9
   },
   {
     "text": "Dwelling on the past or future? Quaint! The flow of time is a raging cosmic waterfall, best navigated by white-water rafting through the rapids of existence! Hold on tight and enjoy the existential rapids!",
     "line": ["Dwelling on the past or future? Quaint!", "The flow of time is a raging cosmic waterfall,", "best navigated by white-water rafting through the rapids of existence!", "Hold on tight and enjoy the existential rapids!"],
-    "score": 20
+    "score": 11
   },
   {
     "text": "While mindfulness may be trendy, true cosmic awareness thrives on embracing the unpredictable! Let go of the need for control and surrender to the glorious madness of the universe. You might just stumble upon a black hole of enlightenment!",
     "line": ["While mindfulness may be trendy,", "true cosmic awareness thrives on embracing the unpredictable!", "Let go of the need for control and surrender to the glorious madness of the universe.", "You might just stumble upon a black hole of enlightenment!"],
-    "score": 25
+    "score": 13
   },
   {
     "text": "Your isolation from the grand scheme? A truly liberating perspective! Free from the shackles of purpose and connection, you can finally revel in the glorious absurdity of it all. Perhaps a career in interdimensional clown college awaits?",
     "line": ["Your isolation from the grand scheme?", "A truly liberating perspective!", "Free from the shackles of purpose and connection,", "you can finally revel in the glorious absurdity of it all.", "Perhaps a career in interdimensional clown college awaits?"],
-    "score": 30
+    "score": 15
   }
 ]
 
@@ -624,7 +622,7 @@ function choose(line){
   lineChosen = true
   //colourBox(line.line, line.boxId)
   
-  // SHOW SELECTED BOX (COLOR) + TEXT RESPONSE (MAKE INVISIBLE BEFORE CHOSEN LINE)
+  // SHOW SELECTED BOX (COLOR)
   push()
   fill(214, 254, 2)
   rect(rectCoords[line.boxId].x, rectCoords[line.boxId].y, width, height);   
@@ -644,7 +642,7 @@ function choose(line){
   // Add Line To Haiku
   haiku.push(line)
 
-  // Randomize The Lines (EITHER CHANGE CARDS OR TITLES)
+  // Randomize The Lines
   // random = [4,0,2,1,3,5]
 
   // Increase The Level
@@ -695,5 +693,3 @@ function mouseClicked(event){
     startLevel()
   }
 }
-
-// INSERT FRAME INTO A FRAME (TO CENTER ENTIRE PAGE)
