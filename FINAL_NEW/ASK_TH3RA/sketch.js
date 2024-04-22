@@ -37,11 +37,11 @@ function preload() {
 }
 
 const questions = [
-  "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old cosmos? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
-  "Alright, cosmic wanderer, tell me all about your deepest thoughts and anxieties. Spilling your secrets to a complete stranger, a therapist from a backwards little planet like this, is sure to be a truly transformative experience.",
-  "You navigate the cosmos with ease, but can you handle the mundane traffic laws here in your dimension? Perhaps parallel parking a black hole is a breeze for a cosmic entity such as yourself, but merging onto a highway during rush hour... that's a true test of cosmic patience.",
-  "Connection to all things, you say? Fascinating. Then tell me, o wise traveler, how exactly do you plan on paying your interdimensional therapy bill? It seems like accepting various forms of cosmic dust might be a bit inconvenient.",
-  "Impermanence is beautiful, you say? Well, that's a lovely sentiment for a being who exists outside of time altogether. Here on our little planet, impermanence mostly means overflowing landfills and a never-ending to-do list."
+  "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old galaxy? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
+  "Alright, cosmic wanderer, tell me all about your deepest thoughts and anxieties. Spilling your secrets to a complete stranger, a therapist from a backwards planet like this, is sure to be a truly transformative experience.",
+  "You navigate the milkyway with ease, but can you handle the traffic laws here in your dimension? Perhaps parking a black hole is a breeze for an angelic entity such as yourself, but merging onto a highway during rush hour... now that's cosmic patience.",
+  "Connection to all things, you say? Fascinating. Then tell me, o' wise traveler, how exactly do you plan on paying your interdimensional therapy bill? It seems like accepting various forms of cosmic dust might be a bit inconvenient.",
+  "Impermanence is beautiful, oh really? Well, that's a lovely sentiment for a being who exists outside of time altogether. Here on our planet, impermanence mostly means overflowing landfills and a never-ending to-do list."
 ]
 
 const lines = [
@@ -106,7 +106,7 @@ const lines = [
     {
       "command": ["cosmic", "patience"],
       "line": ["Cosmic", "Patience?"],  
-      "text": "A refreshingly zen perspective! Your patience extends beyond the mundane, it seems.",  
+      "text": "A refreshingly zen perspective! Your patience extends beyond the mundane.",  
       "subtext": "I possess an infinite well of patience, honed by eons of observing the glacial pace of stellar evolution. A few impatient drivers are mere blips on the cosmic radar.",
       "score": 2  
     },
@@ -300,9 +300,10 @@ function startLevel() {
   topLeftX = windowWidth/100
   topLeftY = windowHeight/35
   
-  voiceSynthesizer.setPitch(0.8);
+  voiceSynthesizer.setPitch(1);
   voiceSynthesizer.setRate(1);
-  voiceSynthesizer.setVoice(`Google UK English Male`);
+  voiceSynthesizer.setVoice(`Google UK English Female`);
+  voiceSynthesizer.onEnd = onSpeechEnd
   
   // Reset That No Line Has Been Chosen
   lineChosen = false
