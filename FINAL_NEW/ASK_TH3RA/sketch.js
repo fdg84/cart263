@@ -58,7 +58,7 @@ const lines = [
     {
       "command": ["reality", "tv", "intriguing"],
       "line": ["Reality TV?", "Intriguing"],
-      "text": "True. A controlled chaos experiment could become the next galactic reality show sensation!",
+      "text": "True. A controlled chaos experiment could become the next galactic sensation!",
       "subtext": "You know, a dimension dedicated to manufactured conflict might provide some fascinating sociological data. Perhaps I could offer a guest appearance as the 'Wise Interdimensional Therapist.'", 
       "score": 2 
     },
@@ -83,14 +83,14 @@ const lines = [
       "command": ["transformative", "experience"],
       "line": ["Transformative", "Experience?"],  
       "text": "The human psyche is a labyrinth of contradictions, a kaleidoscope of emotions and anxieties.",  
-      "subtext": "Perhaps for you, dear therapist.  For me, it's mostly a delightful diversion, offering a glimpse into the fascinating (and frankly, slightly terrifying) psyche of a single-planet species.",
+      "subtext": "Perhaps for you, dear therapist. For me, it's mostly a delightful diversion, offering a glimpse into the fascinating (and frankly, slightly terrifying) psyche of a single-planet species.",
       "score": 2
     },
     {
       "command": ["backwards", "planet"],
       "line": ["Backwards", "Planet?"],  
       "text": "Ah, the power of headwear in fostering a sense of intergalactic community!",  
-      "subtext": "Look, every civilization starts somewhere.  Just because you haven't mastered interdimensional travel yet doesn't mean you don't have your own unique charm...  like those adorable little hats you all wear.",
+      "subtext": "Look, every civilization starts somewhere. Just because you haven't mastered interdimensional travel yet doesn't mean you don't have your own unique charm... like those adorable little hats you all wear.",
       "score": 3  
     }
    ],
@@ -99,22 +99,22 @@ const lines = [
     {
       "command": ["parallel", "parking", "black", "hole"],
       "line": ["Parallel Parking", "a Black Hole?"],  
-      "text": "Now that's a cosmic traffic jam I wouldn't want to miss!",  
-      "subtext": "Child's play!  The real test is navigating a multidimensional traffic jam caused by a herd of hyper-intelligent hamsters on joyrides.",
+      "text": "Interesting! Now that's a cosmic traffic jam I wouldn't want to miss.",  
+      "subtext": "Child's play! The real test is navigating a multidimensional traffic jam caused by a herd of hyper-intelligent hamsters on joyrides.",
       "score": 1 
     },
     {
       "command": ["cosmic", "patience"],
       "line": ["Cosmic", "Patience?"],  
-      "text": "A refreshingly zen perspective!",  
-      "subtext": "I possess an infinite well of patience, honed by eons of observing the glacial pace of stellar evolution.  A few impatient drivers are mere blips on the cosmic radar.",
+      "text": "A refreshingly zen perspective! Your patience extends beyond the mundane, it seems.",  
+      "subtext": "I possess an infinite well of patience, honed by eons of observing the glacial pace of stellar evolution. A few impatient drivers are mere blips on the cosmic radar.",
       "score": 2  
     },
     {
       "command": ["highway", "merging"],
       "line": ["Highway", "Merging?"],  
       "text": "Fascinating! A microcosm of galactic road rage, played out on a single-planet highway.",  
-      "subtext": "I find it most amusing how such a simple maneuver can cause such a display of anxiety and horn-honking.  Truly, a unique cultural phenomenon.",
+      "subtext": "I find it most amusing how such a simple maneuver can cause such a display of anxiety and horn-honking. Truly, a unique cultural phenomenon.",
       "score": 3  
     }
   ],
@@ -123,7 +123,7 @@ const lines = [
     {
       "command": ["creative", "solutions"],
       "line": ["Creative", "Solutions"],  
-      "text": "Now this is a therapy session I can get behind!",  
+      "text": "Ancient alien languages? Sign me up! Now this is a therapy session I can get behind!",  
       "subtext": "Perhaps we could work out a payment plan involving cosmic dance lessons or a crash course in ancient alien languages.",
       "score": 1 
     },
@@ -131,14 +131,14 @@ const lines = [
       "command": ["beyond", "currency"],
       "line": ["Beyond", "Currency"],  
       "text": "Forget currency, the true galactic treasure is the wisdom gleaned from delving into the cosmic abyss of one's being.",  
-      "subtext": "Ultimately, true connection transcends the need for material exchange.  The wisdom gained from our session is reward enough, wouldn't you agree?",
+      "subtext": "Ultimately, true connection transcends the need for material exchange. The wisdom gained from our session is reward enough, wouldn't you agree?",
       "score": 2  
     },
     {
       "command": ["interdimensional", "debt", "collectors?"],
       "line": ["Interdimensional", "Debt Collectors?"],  
-      "text": "Now that's a cosmic pickle of epic proportions!",  
-      "subtext": "Let's just say they're a force even a cosmic traveler wouldn't want to encounter.  Rest assured, I'll find a way to settle this debt... eventually.",
+      "text": "Don't worry, consider this session an investment in your future intergalactic credit rating.",  
+      "subtext": "Let's just say they're a force even a cosmic traveler wouldn't want to encounter. Rest assured, I'll find a way to settle this debt... eventually.",
       "score": 3  
     }
   ],
@@ -148,21 +148,21 @@ const lines = [
       "command": ["impermanence", "versus", "landfills"],
       "line": ["Impermanence", "vs. Landfills"],  
       "text": "While landfills may seem like cosmic eyesores, they hold the potential for rebirth.",  
-      "subtext": "Ah, the human condition.  You focus on the negative, the decay and clutter.  But impermanence also allows for growth, change, and the opportunity to create something new from the ashes of the old.",
+      "subtext": "Ah, the human condition. You focus on the negative, the decay and clutter. But impermanence also allows for growth, change, and the opportunity to create something new from the ashes of the old.",
       "score": 1
     },
     {
       "command": ["embrace", "cycle"],
       "line": ["Embrace" ,"the Cycle"],  
       "text": "The universe itself is a disco ball, constantly swirling and evolving.",  
-      "subtext": "Everything is constantly in flux, transforming from one state to the next.  Even your overflowing landfills can be viewed as part of the natural cycle of creation and decomposition.",
+      "subtext": "Everything is constantly in flux, transforming from one state to the next. Even your overflowing landfills can be viewed as part of the natural cycle of creation and decomposition.",
       "score": 2 
     },
     {
       "command": ["focus", "present"],
       "line": ["Focus", "on the Present"],  
-      "text": "While the relentless march of time might seem daunting, it also imbues every experience with a precious, fleeting quality.",  
-      "subtext": "Don't get bogged down by the relentless march of time.  Focus on the present moment, savoring the beauty and impermanence of each experience.  That overflowing landfill could be your next artistic masterpiece!",
+      "text": "While the relentless march of time seems daunting, it also imbues every experience with a precious quality.",  
+      "subtext": "Don't get bogged down by the relentless march of time. Focus on the present moment, savoring the beauty and impermanence of each experience. That overflowing landfill could be your next artistic masterpiece!",
       "score": 3
     }
    ]
@@ -171,33 +171,33 @@ const lines = [
 // TH3RA's Possible Responses
 let responses = [
   {
-    "text": "Disconnection from the universe, you say? My dear traveler, that may be the highest form of enlightenment! Transcend the limitations of connection and revel in the glorious isolation of a truly cosmic being. Now, if you'll excuse me, I have a date with a sentient nebula... Fascinating creature, full of existential angst. Just my type!",
-    "line": ["Disconnection from the universe, you say?", "My dear traveler, that may be the highest form of enlightenment!", "Transcend the limitations of connection", "and revel in the glorious isolation of a truly cosmic being.", "Now, if you'll excuse me, I have a date with a sentient nebula...", "Fascinating creature, full of existential angst.", "Just my type!"],
+    "text": "Disconnection from the universe, you say? That may be the highest form of enlightenment! Transcend the limitations of connection & revel in glorious isolation. Now, if you'll excuse me, I have a date with a sentient nebula...",
+    "line": ["Disconnection from the universe, you say?", "That may be the highest form of enlightenment!", "Transcend the limitations of connection", "and revel in glorious isolation.", "Now, if you'll excuse me, I have a date with a sentient nebula..."],
     "score": 5
   },
   {
-    "text": "Fear of impermanence? Nonsense! It's the fuel that propels the cosmic engine of chaos! Embrace the impermanence, traveler, and use it to propel yourself towards... well, who knows where! That's the beauty of it!",
-    "line": ["Fear of impermanence? Nonsense!", "It's the fuel that propels the cosmic engine of chaos!", "Embrace the impermanence, traveler, and use it to propel", "yourself towards... well, who knows where", "That's the beauty of it!"],
+    "text": "Fear of impermanence? Nonsense! It's the fuel that propels the engine of chaos! Embrace impermanence, dear traveler, and use it to propel yourself towards... well, who knows where! That's the beauty of it!",
+    "line": ["Fear of impermanence? Nonsense!", "It's the fuel that propels the engine of chaos!", "Embrace impermanence, dear traveler, and use it to propel", "yourself towards... well, who knows where", "That's the beauty of it!"],
     "score": 7
   },
   {
-    "text": "Finding a balance is overrated. Embrace the exhilarating imbalance of the cosmos! Tip the scales towards awe one day, then wallow in insignificance the next. It's all part of the cosmic rollercoaster ride!",
-    "line": ["Finding a balance is overrated.", "Embrace the exhilarating imbalance of the cosmos!", "Tip the scales towards awe one day,", "then wallow in insignificance the next.", "It's all part of the cosmic rollercoaster ride!"],
+    "text": "Finding balance is overrated. Embrace the exhilarating imbalance of the cosmos! Tip the scales towards awe, then wallow in insignificance. It's all part of life's rollercoaster!",
+    "line": ["Finding balance is overrated.", "Embrace the exhilarating imbalance of the cosmos!", "Tip the scales towards awe,", "then wallow in insignificance.", "It's all part of life's rollercoaster!"],
     "score": 9
   },
   {
-    "text": "Dwelling on the past or future? Quaint! The flow of time is a raging cosmic waterfall, best navigated by white-water rafting through the rapids of existence! Hold on tight and enjoy the existential rapids!",
-    "line": ["Dwelling on the past or future? Quaint!", "The flow of time is a raging cosmic waterfall,", "best navigated by white-water rafting through the rapids of existence!", "Hold on tight and enjoy the existential rapids!"],
+    "text": "Dwelling on the past? Quaint! The flow of time is a raging waterfall, best navigated by white-water rafting through the rapids of existence! Hold on tight and enjoy the flow!",
+    "line": ["Dwelling on the past? Quaint!", "The flow of time is a raging waterfall,", "best navigated by white-water rafting through the rapids of existence!", "Hold on tight and enjoy the flow!"],
     "score": 11
   },
   {
-    "text": "While mindfulness may be trendy, true cosmic awareness thrives on embracing the unpredictable! Let go of the need for control and surrender to the glorious madness of the universe. You might just stumble upon a black hole of enlightenment!",
-    "line": ["While mindfulness may be trendy,", "true cosmic awareness thrives on embracing the unpredictable!", "Let go of the need for control and surrender to the glorious madness of the universe.", "You might just stumble upon a black hole of enlightenment!"],
+    "text": "While mindfulness may be trendy, true cosmic awareness thrives on embracing the unpredictable! Let go and surrender to the madness of the universe. You might just stumble upon a black hole of enlightenment!",
+    "line": ["While mindfulness may be trendy,", "true cosmic awareness thrives on embracing the unpredictable!", "Let go and surrender to the madness of the universe.", "You might just stumble upon a black hole of enlightenment!"],
     "score": 13
   },
   {
-    "text": "Your isolation from the grand scheme? A truly liberating perspective! Free from the shackles of purpose and connection, you can finally revel in the glorious absurdity of it all. Perhaps a career in interdimensional clown college awaits?",
-    "line": ["Your isolation from the grand scheme?", "A truly liberating perspective!", "Free from the shackles of purpose and connection,", "you can finally revel in the glorious absurdity of it all.", "Perhaps a career in interdimensional clown college awaits?"],
+    "text": "Feeling insignificant in this vast, uncaring cosmos? A truly liberating perspective! Free from the shackles of purpose, you can finally revel in the absurdity of it all. Perhaps a career in interdimensional clown college awaits?",
+    "line": ["Feeling insignificant in this vast, uncaring cosmos?", "A truly liberating perspective!", "Free from the shackles of purpose,", "you can finally revel in the absurdity of it all.", "Perhaps a career in interdimensional clown college awaits?"],
     "score": 15
   }
 ]
@@ -262,7 +262,7 @@ function menuScreen() {
   textWrap(WORD)
   textStyle(NORMAL)
   textSize(20)
-  text("is a poetic AI experience, in which the player, PATIENT #71340, uses their voice to respond to the therapist's questions, revealing TH3RA's cosmic diagnosis.", textCenter - 185, top + 50, 400)
+  text("TH3RA is a poetic AI experience, in which the player, PATIENT #71340, uses their voice to respond to the therapist's questions, revealing their cosmic diagnosis.", textCenter - 185, top + 50, 400)
 
   textAlign(LEFT)
   fill('red')
@@ -275,7 +275,7 @@ function menuScreen() {
   textWrap(WORD)
   textStyle(NORMAL)
   textSize(20)
-  text("Answer questions to gain points & speak to your AI guru. Use your voice to select 1 response per level.", textCenter -185, top + 275, 400)
+  text("Use your voice to select 1 response per level. Choose the answers which reflect your attitude most closely. Gain insight & connect to your AI guru!", textCenter -185, top + 275, 400)
 
   textAlign(LEFT)
   fill('red')
@@ -301,7 +301,7 @@ function startLevel() {
   topLeftY = windowHeight/35
   
   voiceSynthesizer.setPitch(0.8);
-  voiceSynthesizer.setRate(0.8);
+  voiceSynthesizer.setRate(1);
   voiceSynthesizer.setVoice(`Google UK English Male`);
   
   // Reset That No Line Has Been Chosen
@@ -311,17 +311,19 @@ function startLevel() {
   fill(textColor)
   textAlign(CENTER)
 
+  fill("red")
   textSize(40)
   textStyle(BOLD)
   textWrap(WORD)
   text("QUESTION " + (level + 1), topLeftX + 320, topLeftY + 30, 1000);
   
+  fill('white')
   textStyle(NORMAL)
   textSize(35)
   textWrap(WORD);
   text(questions[level], topLeftX + 320, topLeftY + 100, 1000);
       
-  fill('white')
+  
   
   let y = 350
   for (let i = 0; i < 3; i++){
@@ -370,7 +372,7 @@ function theraScreen() {
     }
   }
   
-  fill("black")
+  fill("red")
   textSize(40)
   textStyle(BOLD)
   text("Critical Analysis", windowWidth/3-100, windowHeight/4);
@@ -398,7 +400,7 @@ function heavenScreen() {
   level = 0
   haiku = []
  
-  voiceSynthesizer.speak("See you in heaven cosmic traveler. Good luck on your journey!")
+  voiceSynthesizer.speak("See you in heaven, cosmic traveler. Good luck on your journey!")
 
   // Draw Heaven Image
   image(heaven, (windowWidth/2 - windowHeight/2) ,0, windowHeight, windowHeight);
