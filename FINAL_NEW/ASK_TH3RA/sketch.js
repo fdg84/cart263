@@ -400,7 +400,7 @@ function heavenScreen() {
   level = 0
   haiku = []
  
-  voiceSynthesizer.speak("See you in heaven, cosmic traveler. Good luck on your journey!")
+  voiceSynthesizer.speak("See you in heaven, dear traveler. Good luck on your journey!")
 
   // Draw Heaven Image
   image(heaven, (windowWidth/2 - windowHeight/2) ,0, windowHeight, windowHeight);
