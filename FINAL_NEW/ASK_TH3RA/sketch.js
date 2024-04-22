@@ -39,8 +39,8 @@ function preload() {
 const questions = [
   "So, you've conquered countless realities, witnessed the birth and death of stars... Do you ever get bored traveling the same old galaxy? Maybe you should spice things up with a vacation on a relaxing reality TV show dimension.",
   "Alright, cosmic wanderer, tell me all about your deepest thoughts and anxieties. Spilling your secrets to a complete stranger, a therapist from a backwards planet like this, is sure to be a truly transformative experience.",
-  "You navigate the milkyway with ease, but can you handle the traffic laws here in your dimension? Perhaps parking a black hole is a breeze for an angelic entity such as yourself, but merging onto a highway during rush hour... now that's cosmic patience.",
-  "Connection to all things, you say? Fascinating. Then tell me, o' wise traveler, how exactly do you plan on paying your interdimensional therapy bill? It seems like accepting various forms of cosmic dust might be a bit inconvenient.",
+  "You navigate the milkyway with ease, but can you handle the traffic laws here in your dimension? Perhaps parking a black hole is a breeze for an entity such as yourself, but merging onto a highway during rush hour... now that's cosmic patience.",
+  "Connection to all things, you say? Fascinating. Then tell me, wise traveler, how exactly do you plan on paying your interdimensional therapy bill? It seems like accepting various forms of cosmic dust might be a bit inconvenient.",
   "Impermanence is beautiful, oh really? Well, that's a lovely sentiment for a being who exists outside of time altogether. Here on our planet, impermanence mostly means overflowing landfills and a never-ending to-do list."
 ]
 
