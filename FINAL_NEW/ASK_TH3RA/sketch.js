@@ -28,7 +28,7 @@ let isMenuScreen = false
 let isTheraScreen = false
 let isHeavenScreen = false
 
-// Origin Variables for Level Layout
+// Origin Variables for Level Layout 
 let topLeftX, topLeftY 
 
 function preload() {
